@@ -144,10 +144,9 @@
 
         </div>
 
-        <div id="buttons" class="btn-group ">
-            <button id="btnTimeKnown" class="btn btn-primary">Time known</button>
-            <button id="btnLocKnown" class="btn btn-primary">Location known</button>
-            <button id="btnOpenVote" class="btn btn-secondary">Vote</button>
+        <div id="buttons">
+            <button id="btnTimeKnown" class="btn btn-primary" onclick="loadTimeKnownForm()">Time known</button><br>
+            <button id="btnLocKnown" class="btn btn-primary" onclick="loadLocKnownForm()">Location known</button><br>
         </div>
 
         <div id="hiddenDiv"  hidden>
@@ -161,9 +160,3 @@
 </body>
 </html>
 
-<script>
-    document.getElementById("btnTimeKnown").addEventListener('click', () => loadTimeKnownForm());
-    document.getElementById("btnLocKnown").addEventListener('click', () => loadLocKnownForm())
-    document.getElementById("btnOpenVote").addEventListener('click', () => openVoting());
-
-</script>
