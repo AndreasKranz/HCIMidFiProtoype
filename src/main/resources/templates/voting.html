@@ -3,64 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        table{
+            width: auto;
+            text-align: center;
+        }
+        tr{
+           width: auto;
+           height: 50px;
+        }
+        th{
+            width: 150px;
+
+        }
+        td{
+            width: auto;
+        }
+        datalist {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            writing-mode: vertical-lr;
+            width: 200px;
+        }
+        option {
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
 
-<h3 class="text-center">Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!</h3>
+    <h3 class="text-center">Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!</h3>
 
-<div class="row">
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>Preference</th>
+        </tr>
+        <tr>    
+            <th>Th 11.10 - 3.15pm</th>
+            <td>
+                <input type="range" id="preferTime" name="preferTime" list="score" min="0" max="5" value="4" step="1">
+                <label for="preferTime"></label><br />
+                <datalist id="score">
+                    <option value="0" label="0"></option>
+                    <option value="1" label="1"></option>
+                    <option value="2" label="2"></option>
+                    <option value="3" label="3"></option>
+                    <option value="4" label="4"></option>
+                    <option value="5" label="5"></option>
+                </datalist>
+            </td>
+            <td><input type="button" value="delete"></td>
+        </tr>
+        <tr>    
+            <th>Fr 11.11 - 4.00pm</th>
+            <td>
+                <input type="range" id="preferTime" name="preferTime" list="score" min="0" max="5" value="4" step="1">
+                <datalist id="score">
+                    <option value="0" label="0"></option>
+                    <option value="1" label="1"></option>
+                    <option value="2" label="2"></option>
+                    <option value="3" label="3"></option>
+                    <option value="4" label="4"></option>
+                    <option value="5" label="5"></option>
+                </datalist>
+            </td>
+            <td><input type="button" value="delete"></td>
+        </tr>
+        <tr>    
+            <th>Fr 11.11 - 9.30pm</th>
+            <td>
+                <input type="range" id="preferTime" name="preferTime" list="score" min="0" max="5" value="4" step="1">
+                <label for="preferTime"></label><br />
+                <datalist id="score">
+                    <option value="0" label="0"></option>
+                    <option value="1" label="1"></option>
+                    <option value="2" label="2"></option>
+                    <option value="3" label="3"></option>
+                    <option value="4" label="4"></option>
+                    <option value="5" label="5"></option>
+                </datalist>
+            </td>
+            <td><input type="button" value="delete"></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><button id="btnSendVote" class="btn btn-primary btn-lg" style="width: 80px; height: 25px;"onclick="addScheduleRow()">Vote!</button></td>
+        </tr>
+    </table>
 
-    <div class="col-3">
-        <form>
-            <input type="radio" id="radio1_X" name="favTimeOpt1" value="0" class="form-check-input" hidden>
-            <label for="radio1_X" name="absence" class="form-check-label" hidden>X</label>
+    <div id="saveScheduleId" hidden></div>
 
-
-            <input type="radio" id="radio1_1" name="favTimeOpt1" value="1" class="form-check-input">
-            <label for="radio1_1" class="form-check-label">1</label>
-            <input type="radio" id="radio1_2" name="favTimeOpt1" value="2" class="form-check-input">
-            <label for="radio1_2" class="form-check-label">2</label>
-            <input type="radio" id="radio1_3" name="favTimeOpt1" value="3" class="form-check-input">
-            <label for="radio1_3" class="form-check-label" id="radiolbl1">3 | Th 11.10 - 3.15pm</label><br>
-        </form>
-        <br>
-        <form>
-            <input type="radio" id="radio2_X" name="favTimeOpt2" value="0" class="form-check-input" hidden>
-            <label for="radio2_X" name="absence" class="form-check-label" hidden>X</label>
-
-            <input type="radio" id="radio2_1" name="favTimeOpt2" value="1" class="form-check-input">
-            <label for="radio2_1" class="form-check-label">1</label>
-            <input type="radio" id="radio2_2" name="favTimeOpt2" value="2" class="form-check-input">
-            <label for="radio2_2" class="form-check-label">2</label>
-            <input type="radio" id="radio2_3" name="favTimeOpt2" value="3" class="form-check-input">
-            <label for="radio2_3" class="form-check-label" id="radiolbl2">3 | Fr 11.11 - 4.00pm</label><br>
-        </form>
-        <br>
-        <form>
-            <input type="radio" id="radio3_X" name="favTimeOpt3" value="0" class="form-check-input" hidden>
-            <label for="radio3_X" name="absence" class="form-check-label" hidden>X</label>
-
-            <input type="radio" id="radio3_1" name="favTimeOpt3" value="1" class="form-check-input">
-            <label for="radio3_1" class="form-check-label">1</label>
-            <input type="radio" id="radio3_2" name="favTimeOpt3" value="2" class="form-check-input">
-            <label for="radio3_2" class="form-check-label">2</label>
-            <input type="radio" id="radio3_3" name="favTimeOpt3" value="3" class="form-check-input">
-            <label for="radio3_3" class="form-check-label" id="radiolbl3">3 | Fr 11.11 - 9.30pm</label><br>
-        </form>
-        <br>
-    </div>
-
-    <div class="col">
-        <br>
-        <br>
-        <button id="btnSendVote" class="btn btn-primary btn-lg" onclick="addScheduleRow()">Vote!</button>
-        <button id="btnEditMeet" class="btn btn-primary btn-lg" onclick="editExistingMeet()" hidden>Vote!</button>
-    </div>
-</div>
-
-<div id="saveScheduleId" hidden></div>
-
-<div id="result"></div>
+    <div id="result"></div>
 
 </body>
 </html>

@@ -40,4 +40,9 @@ public class ChronosController {
         return "mapFragment";
     }
 
+    @PostMapping(value = "/success")
+    public String retrieveSucess(){
+        return "invSent";
+    }
+
 }
