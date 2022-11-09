@@ -1,57 +1,90 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <style>
+      #selectedLocation {
+        color: red;
+      }
+      #search-container {
+        display: flex;
+      }
+      #keywordsubmit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 3px;
+        background-color: #ededed;
+        border: 1px solid black;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function search() {
+        var location = document.getElementById("selectedLocation");
+        location.innerHTML = "Ewha Womans University";
+      }
+    </script>
+    <div>
+      <h3>Set up a meeting and find a Time!</h3>
 
-<div>
-
-    <h3>Set up a meeting and find a Time!</h3>
-
-    <form>
+      <form>
         <label for="eName" class="form-label-label">Event name:</label>
-        <input id="eName" type="text" class="form-control"><br>
+        <input id="eName" type="text" class="form-control" /><br />
         <label for="eParticipants" class="form-label">Participants:</label>
-        <input type="email" id="eParticipants" multiple class="form-control"><br>
-        <label class="form-label">Location:</label>
+        <input
+          type="email"
+          id="eParticipants"
+          multiple
+          class="form-control"
+        /><br />
+        <label for="eLocation" class="form-label"
+          >Location: <span id="selectedLocation"></span
+        ></label>
 
         <table>
-            <tbody>
+          <tbody>
             <tr>
-                <td class="col-3">
-                    <img src="/img/hci1.PNG" alt="Movie Theater" class="img-fluid">
-                </td>
-                <td class="col-3">
-                    <img src="/img/hci2.PNG" alt="ECC" class="img-fluid">
-                </td>
-                <td class="col-3">
-                    <img src="/img/hci3.PNG" alt="Soccer Field" class="img-fluid">
-                </td>
+              <td class="text-center">
+                <form>
+                  <div id="search-container">
+                    <input
+                      type="text"
+                      id="keyword"
+                      name="keyword"
+                      placeholder="search by keywords..."
+                      value=""
+                    />
+                    <div
+                      id="keywordsubmit"
+                      onclick="window.open('keywordSearchResult.html'); search();"
+                    >
+                      Search
+                    </div>
+                  </div>
+                </form>
+              </td>
             </tr>
-            <tr>
-                <td class="text-center">
-                    <input type="radio" name="radioLoc" id="radioTheater">
-                    <label for="radioTheater" class="text-center">Movie Theater</label>
-                </td>
-                <td class="text-center">
-                    <input type="radio" name="radioLoc" id="radioECC">
-                    <label for="radioECC" class="text-center">ECC</label>
-                </td>
-                <td class="text-center">
-                    <input type="radio" name="radioLoc" id="radioSoccer">
-                    <label for="radioSoccer" class="text-center">Soccer Field</label>
-                </td>
-            </tr>
-
-            </tbody>
+          </tbody>
         </table>
-    </form>
+        <!-- <select id="eLocation" class="form-select">
+                    <option>Soccerfield</option>
+                    <option>ECC</option>
+                    <option>Engineering Building A</option>
+                    <option>City Hall</option>
+                </select><br>-->
+      </form>
 
-    <div class="btn-group">
+      <div class="row">
         <form th:action="@{/}" method="post">
-            <input type="submit" value="Cancel" class="btn btn-outline-success"/>
+          <input type="submit" value="Make" class="btn btn-outline-info" />
         </form>
-        <button type="button" onclick="makeMeeting()" class="btn btn-outline-primary">Make!</button>
+        <form th:action="@{/}" method="post">
+          <input type="submit" value="Cancel" class="btn btn-outline-success" />
+        </form>
+      </div>
     </div>
-
-
-</div>
-
+  </body>
 </html>

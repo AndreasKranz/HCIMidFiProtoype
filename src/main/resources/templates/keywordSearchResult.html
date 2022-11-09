@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        margin: 20px 0px;
+      }
+
+      #top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 200px;
+        background-color: #ededed;
+      }
+
+      #title {
+        font-size: xx-large;
+        font-weight: 800;
+      }
+
+      #bottom {
+        width: 80%;
+      }
+
+      .option {
+        height: 100px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border: 2px solid black;
+        border-radius: 15px;
+        margin: 15px 0px;
+      }
+
+      .name {
+        margin-left: 20px;
+        font-size: large;
+        font-weight: 600;
+      }
+
+      .address {
+        margin-left: auto;
+        margin-right: 40px;
+      }
+
+      .click {
+        padding-left: 50px;
+        color: darkgray;
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      #done {
+        width: 200px;
+        height: 50px;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function selectFirst() {
+        var selected = document.getElementById("first");
+        selected.style.backgroundColor = "#a9a9a9";
+
+        var second = document.getElementById("second");
+        second.style.backgroundColor = "#ffffff";
+        var third = document.getElementById("third");
+        third.style.backgroundColor = "#ffffff";
+        var fourth = document.getElementById("fourth");
+        fourth.style.backgroundColor = "#ffffff";
+      }
+
+      function selectSecond() {
+        var selected = document.getElementById("second");
+        selected.style.backgroundColor = "#a9a9a9";
+
+        var first = document.getElementById("first");
+        first.style.backgroundColor = "#ffffff";
+        var third = document.getElementById("third");
+        third.style.backgroundColor = "#ffffff";
+        var fourth = document.getElementById("fourth");
+        fourth.style.backgroundColor = "#ffffff";
+      }
+
+      function selectThird() {
+        var selected = document.getElementById("third");
+        selected.style.backgroundColor = "#a9a9a9";
+
+        var second = document.getElementById("second");
+        second.style.backgroundColor = "#ffffff";
+        var first = document.getElementById("first");
+        first.style.backgroundColor = "#ffffff";
+        var fourth = document.getElementById("fourth");
+        fourth.style.backgroundColor = "#ffffff";
+      }
+
+      function selectFourth() {
+        var selected = document.getElementById("fourth");
+        selected.style.backgroundColor = "#a9a9a9";
+
+        var second = document.getElementById("second");
+        second.style.backgroundColor = "#ffffff";
+        var third = document.getElementById("third");
+        third.style.backgroundColor = "#ffffff";
+        var first = document.getElementById("first");
+        first.style.backgroundColor = "#ffffff";
+      }
+    </script>
+
+    <div id="container">
+      <div id="top">
+        <span id="title">Search Results</span>
+        <span id="instruction">Choose one and click 'done'</span>
+      </div>
+      <div id="bottom">
+        <div id="first" class="option" onclick="selectFirst();">
+          <span class="name">Ewha Womans University</span>
+          <span class="address">
+            12-34 Ewha Street, Seoul, Korea
+            <span class="click">Click</span>
+          </span>
+        </div>
+        <div id="second" class="option" onclick="selectSecond();">
+          <span class="name">Ewha Grocery Store</span>
+          <span class="address">
+            12-34 Ewha Street, Seoul, Korea
+            <span class="click">Click</span>
+          </span>
+        </div>
+        <div id="third" class="option" onclick="selectThird();">
+          <span class="name">Ewha Elementary School</span>
+          <span class="address">
+            12-34 Ewha Street, Seoul, Korea
+            <span class="click">Click</span>
+          </span>
+        </div>
+        <div id="fourth" class="option" onclick="selectFourth();">
+          <span class="name">Ewha High School</span>
+          <span class="address">
+            12-34 Ewha Street, Seoul, Korea
+            <span class="click">Click</span>
+          </span>
+        </div>
+      </div>
+      <div>
+        <button id="done" onclick="window.close()">done</button>
+      </div>
+    </div>
+  </body>
+</html>
