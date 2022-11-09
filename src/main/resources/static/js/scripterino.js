@@ -29,21 +29,21 @@ async function openVoting() {
     bigStage.innerHTML = frag
 }
 
-function crossDate(lblid){
+function crossDate(lblid) {
     let lblcontent = document.getElementById(lblid).innerText;
 
     document.getElementById(lblid).innerHTML = "<del>" + lblcontent + "</del>";
 
 }
 
-function uncrossDate(lblid){
+function uncrossDate(lblid) {
     let lblcontent = document.getElementById(lblid).innerText;
 
     document.getElementById(lblid).innerHTML = lblcontent;
 
 }
 
-function UnCrossDates(){
+function UnCrossDates() {
     let radios1 = document.getElementsByName("favTimeOpt1")
 
     for (let radios1Element of radios1) {
@@ -120,7 +120,7 @@ function getRadioResults() {
     let outputDate = "";
 
     console.log(fav)
-    switch (fav){
+    switch (fav) {
         case 0:
             outputDate = document.getElementById("radiolbl1").innerText;
             //addScheduleRow(outputDate)
@@ -152,12 +152,12 @@ function addScheduleRow() {
 
     let startIndex = input.indexOf("|")
 
-    input = input.substring((startIndex+2), input.length)
+    input = input.substring((startIndex + 2), input.length)
 
     let parts = input.split("-")
 
     strDate = parts[0]
-    strTime = parts[1].substring(1,parts[1].length)
+    strTime = parts[1].substring(1, parts[1].length)
 
     dateTd.innerHTML = strDate
     timeTd.innerHTML = strTime
@@ -169,7 +169,7 @@ function addScheduleRow() {
     console.log(strTime)
 }
 
-function editExistingMeet(){
+function editExistingMeet() {
     let input = getRadioResults()
 
     let dateTd;
@@ -177,7 +177,7 @@ function editExistingMeet(){
 
     let scheduleRowId = document.getElementById("saveScheduleId").innerText;
 
-    switch (scheduleRowId){
+    switch (scheduleRowId) {
         case "scheduleRow1":
             dateTd = document.getElementById("DateCell0")
             timeTd = document.getElementById("TimeCell0")
@@ -197,17 +197,56 @@ function editExistingMeet(){
 
     let startIndex = input.indexOf("|")
 
-    input = input.substring((startIndex+2), input.length)
+    input = input.substring((startIndex + 2), input.length)
 
     let parts = input.split("-")
 
     strDate = parts[0]
-    strTime = parts[1].substring(1,parts[1].length)
+    strTime = parts[1].substring(1, parts[1].length)
 
     dateTd.innerHTML = strDate
     timeTd.innerHTML = strTime
-   //document.getElementById("result").innerHTML = scheduleRowId;
+    //document.getElementById("result").innerHTML = scheduleRowId;
 
+}
+
+async function makeMeeting() {
+
+    let eName = document.getElementById("eName").value;
+    console.log(eName)
+    //let eParticipants = document.getElementById("eParticipants").value
+
+
+    let str = "Sucess! You have sent the voting for the meeting '" + eName + "' to the participants!"
+
+
+    const url = "http://localhost:8090/success"
+
+    let frag;
+
+    try {
+        const responsePromise = await fetch(url, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'html'
+            }
+        })
+        if (!responsePromise.ok) {
+            throw new Error("Error! status: ${response.status}");
+        }
+        frag = await responsePromise.text();
+    } catch (err) {
+        console.log(err);
+    }
+
+    let hiddenDiv = document.getElementById("bigStage").innerHTML = frag;
+
+    console.log(str)
+
+    document.getElementById("confirmH2").innerHTML = str
+
+    //document.getElementById("bigStage").innerHTML = hiddenDiv.innerHTML;
 }
 
 async function openEvent(scheduleId) {

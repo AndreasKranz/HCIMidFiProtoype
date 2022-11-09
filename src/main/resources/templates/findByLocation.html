@@ -10,7 +10,7 @@
         <input id="eName" type="text" class="form-control"><br>
         <label for="eParticipants" class="form-label">Participants:</label>
         <input type="email" id="eParticipants" multiple class="form-control"><br>
-        <label for="eLocation" class="form-label">Location:</label>
+        <label class="form-label">Location:</label>
 
         <table>
             <tbody>
@@ -42,21 +42,13 @@
 
             </tbody>
         </table>
-       <!-- <select id="eLocation" class="form-select">
-            <option>Soccerfield</option>
-            <option>ECC</option>
-            <option>Engineering Building A</option>
-            <option>City Hall</option>
-        </select><br>-->
     </form>
 
-    <div class="row">
-        <form th:action="@{/}" method="post">
-            <input type="submit" value="Make" class="btn btn-outline-info"/>
-        </form>
+    <div class="btn-group">
         <form th:action="@{/}" method="post">
             <input type="submit" value="Cancel" class="btn btn-outline-success"/>
         </form>
+        <button type="button" onclick="makeMeeting()" class="btn btn-outline-primary">Make!</button>
     </div>
 
 

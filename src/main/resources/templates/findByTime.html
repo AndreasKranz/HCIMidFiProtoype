@@ -21,13 +21,11 @@
         <input type="email" id="eParticipants" multiple class="form-control"><br>
     </form>
 
-    <div class="row">
-        <form th:action="@{/vote}" method="post">
-            <input type="submit" value="Make" class="btn btn-outline-info"/>
-        </form>
+    <div class="btn-group">
         <form th:action="@{/}" method="post">
             <input type="submit" value="Cancel" class="btn btn-outline-success"/>
         </form>
+        <button type="button" onclick="makeMeeting()" class="btn btn-outline-primary">Make!</button>
     </div>
 
 
