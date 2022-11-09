@@ -45,4 +45,9 @@ public class ChronosController {
         return "invSent";
     }
 
+    @GetMapping(value= "/searchResult")
+    public String retrieveSearchResult(){
+        return "keywordSearchResult";
+    }
+
 }

@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        table{
+        table {
             width: auto;
             text-align: center;
         }
-        tr{
-           width: auto;
-           height: 50px;
+
+        tr {
+            width: auto;
+            height: 50px;
         }
-        th{
+
+        th {
             width: 150px;
 
         }
-        td{
+
+        td {
             width: auto;
         }
+
         datalist {
             display: flex;
             flex-direction: column;
@@ -26,6 +30,7 @@
             writing-mode: vertical-lr;
             width: 200px;
         }
+
         option {
             padding: 0;
         }
@@ -33,74 +38,76 @@
 </head>
 <body>
 
-    <h3 class="text-center">Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!</h3>
+<h3 class="text-center">Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!</h3>
 
-    <table>
-        <tr>
-            <th>Time</th>
-            <th>Preference</th>
-        </tr>
-        <tr>    
-            <th>Th 11.10 - 3.15pm</th>
-            <td>
-                <input type="range" id="preferTime" name="preferTime" list="score" min="0" max="5" value="4" step="1">
-                <label for="preferTime"></label><br />
-                <datalist id="score">
-                    <option value="0" label="0"></option>
-                    <option value="1" label="1"></option>
-                    <option value="2" label="2"></option>
-                    <option value="3" label="3"></option>
-                    <option value="4" label="4"></option>
-                    <option value="5" label="5"></option>
-                </datalist>
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Preference</th>
+    </tr>
+    <tr>
+        <th id="date1">Th 11.10 - 3.15pm</th>
+        <td>
+            <input type="range" id="preferTime1" name="preferTime" list="score1" min="0" max="5" value="4" step="1">
+            <datalist id="score1">
+                <option value="0" label="0"></option>
+                <option value="1" label="1"></option>
+                <option value="2" label="2"></option>
+                <option value="3" label="3"></option>
+                <option value="4" label="4"></option>
+                <option value="5" label="5"></option>
+            </datalist>
+        </td>
+        <td>
+            <input type="button" value="delete" class="btn btn-secondary" id="btnDel1">
             </td>
-            <td><input type="button" value="delete"></td>
-        </tr>
-        <tr>    
-            <th>Fr 11.11 - 4.00pm</th>
-            <td>
-                <input type="range" id="preferTime" name="preferTime" list="score" min="0" max="5" value="4" step="1">
-                <datalist id="score">
-                    <option value="0" label="0"></option>
-                    <option value="1" label="1"></option>
-                    <option value="2" label="2"></option>
-                    <option value="3" label="3"></option>
-                    <option value="4" label="4"></option>
-                    <option value="5" label="5"></option>
-                </datalist>
-            </td>
-            <td><input type="button" value="delete"></td>
-        </tr>
-        <tr>    
-            <th>Fr 11.11 - 9.30pm</th>
-            <td>
-                <input type="range" id="preferTime" name="preferTime" list="score" min="0" max="5" value="4" step="1">
-                <label for="preferTime"></label><br />
-                <datalist id="score">
-                    <option value="0" label="0"></option>
-                    <option value="1" label="1"></option>
-                    <option value="2" label="2"></option>
-                    <option value="3" label="3"></option>
-                    <option value="4" label="4"></option>
-                    <option value="5" label="5"></option>
-                </datalist>
-            </td>
-            <td><input type="button" value="delete"></td>
-        </tr>
-        <tr>
-            <th></th>
-            <td><button id="btnSendVote" class="btn btn-primary btn-lg" style="width: 80px; height: 25px;"onclick="addScheduleRow()">Vote!</button></td>
-        </tr>
-    </table>
+    </tr>
+    <tr>
+        <th id="date2">Fr 11.11 - 4.00pm</th>
+        <td>
+            <input type="range" id="preferTime2" name="preferTime" list="score2" min="0" max="5" value="4" step="1">
+            <datalist id="score2">
+                <option value="0" label="0"></option>
+                <option value="1" label="1"></option>
+                <option value="2" label="2"></option>
+                <option value="3" label="3"></option>
+                <option value="4" label="4"></option>
+                <option value="5" label="5"></option>
+            </datalist>
+        </td>
+        <td>
+            <input type="button" value="delete" class="btn btn-secondary" id="btnDel2">
+        </td>
+    </tr>
+    <tr>
+        <th id="date3">Fr 11.11 - 9.30pm</th>
+        <td>
+            <input type="range" id="preferTime3" name="preferTime" list="score3" min="0" max="5" value="4" step="1">
+            <datalist id="score3">
+                <option value="0" label="0"></option>
+                <option value="1" label="1"></option>
+                <option value="2" label="2"></option>
+                <option value="3" label="3"></option>
+                <option value="4" label="4"></option>
+                <option value="5" label="5"></option>
+            </datalist>
+        </td>
+        <td>
+            <input type="button" value="delete" class="btn btn-secondary" id="btnDel3">
+        </td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>
+            <button id="btnEditMeet" class="btn btn-primary btn-lg" onclick="editExistingMeet()" hidden>Vote!</button>
+            <button id="btnSendVote" class="btn btn-primary btn-lg" onclick="addScheduleRow()">Vote!</button>
+        </td>
+    </tr>
+</table>
 
-    <div id="saveScheduleId" hidden></div>
+<div id="saveScheduleId" hidden></div>
 
-    <div id="result"></div>
+<div id="result"></div>
 
 </body>
 </html>
-
-<script>
-
-
-</script>

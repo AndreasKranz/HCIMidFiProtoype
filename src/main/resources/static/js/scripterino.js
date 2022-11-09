@@ -2,8 +2,12 @@
 
 let selectedOption = 0
 
-async function openVoting() {
+function search() {
+    var location = document.getElementById("selectedLocation");
+    location.innerHTML = "Ewha Womans University";
+}
 
+async function openVoting() {
     const url = 'http://localhost:8090/vote';
 
     let frag;
@@ -27,113 +31,81 @@ async function openVoting() {
     let bigStage = document.getElementById("bigStage")
 
     bigStage.innerHTML = frag
+
+    UnCrossDates()
 }
 
-function crossDate(lblid) {
-    let lblcontent = document.getElementById(lblid).innerText;
+function crossDate(thId) {
+    let thcontent = document.getElementById(thId).innerText;
 
-    document.getElementById(lblid).innerHTML = "<del>" + lblcontent + "</del>";
+    console.log("thcontent" + thcontent)
 
+    document.getElementById(thId).innerHTML = "<del>" + thcontent + "</del>";
 }
 
 function uncrossDate(lblid) {
-    let lblcontent = document.getElementById(lblid).innerText;
+    let thcontent = document.getElementById(lblid).innerText;
 
-    document.getElementById(lblid).innerHTML = lblcontent;
+    document.getElementById(lblid).innerHTML = thcontent;
 
 }
 
 function UnCrossDates() {
-    let radios1 = document.getElementsByName("favTimeOpt1")
 
-    for (let radios1Element of radios1) {
-        //radios1Element.onclick = uncrossDate("radiolbl1")
-        radios1Element.addEventListener('click', () => uncrossDate("radiolbl1")) //= uncrossDate("radiolbl1")
-    }
-
-    let radios2 = document.getElementsByName("favTimeOpt2")
-
-    for (let radios2Element of radios2) {
-        //radios2Element.onclick = uncrossDate("radiolbl2")
-        radios2Element.addEventListener('click', () => uncrossDate("radiolbl2"))
-    }
-
-    let radios3 = document.getElementsByName("favTimeOpt3")
-
-    for (let radios3Element of radios3) {
-        //radios3Element.onclick(uncrossDate("radiolbl3")) //= uncrossDate("radiolbl3")
-        radios3Element.addEventListener('click', () => uncrossDate("radiolbl3"))
-    }
-
-    document.getElementById("radio1_X").addEventListener('click', () => crossDate("radiolbl1"))
-    document.getElementById("radio2_X").addEventListener('click', () => crossDate("radiolbl2"))
-    document.getElementById("radio3_X").addEventListener('click', () => crossDate("radiolbl3"))
-
+    document.getElementById("btnDel1").addEventListener('click', () => crossDate("date1"))
+    document.getElementById("btnDel2").addEventListener('click', () => crossDate("date2"))
+    document.getElementById("btnDel3").addEventListener('click', () => crossDate("date3"))
 }
 
-function getRadioResults() {
+function getRangeResults() {
+
     let opt1, opt2, opt3;
     let rating1, rating2, rating3;
 
-    opt1 = document.getElementsByName("favTimeOpt1")
-    opt2 = document.getElementsByName("favTimeOpt2")
-    opt3 = document.getElementsByName("favTimeOpt3")
+    opt1 = document.getElementById("preferTime1")
+    opt2 = document.getElementById("preferTime2")
+    opt3 = document.getElementById("preferTime3")
 
-    for (let i = 0; i < opt1.length; i++) {
-        if (opt1[i].checked) {
-            rating1 = opt1[i].value;
-        }
-    }
+    rating1 = opt1.value
+    rating2 = opt2.value
+    rating3 = opt3.value
 
-    for (let i = 0; i < opt2.length; i++) {
-        if (opt2[i].checked) {
-            rating2 = opt2[i].value;
-        }
-    }
-    for (let i = 0; i < opt3.length; i++) {
-        if (opt3[i].checked) {
-            rating3 = opt3[i].value;
-        }
-    }
 
-    if (rating1 == undefined || rating2 == undefined || rating3 == undefined) {
+   /* if (rating1 == undefined || rating2 == undefined || rating3 == undefined) {
         alert("You have to vote for every available date and time!")
-    }
+    }*/
 
     let Rs = [rating1, rating2, rating3]
     console.log(Rs)
 
     let fav = -1;
 
-    for (let i = 3; i > 0; i--) {
+    for (let i = 5; i > 0; i--) {
         for (let j = 0; j < Rs.length; j++) {
             if (Rs[j] == i) {
                 fav = j;
                 break;
-
             }
         }
         if (fav != -1) {
             break;
         }
     }
+
+
     let outputDate = "";
 
     console.log(fav)
     switch (fav) {
         case 0:
-            outputDate = document.getElementById("radiolbl1").innerText;
-            //addScheduleRow(outputDate)
+            outputDate = document.getElementById("date1").innerText;
             break;
         case 1:
-            outputDate = document.getElementById("radiolbl2").innerText;
-            //addScheduleRow(outputDate)
+            outputDate = document.getElementById("date2").innerText;
             break;
         case 2:
-            outputDate = document.getElementById("radiolbl3").innerText;
-            //addScheduleRow(outputDate)
+            outputDate = document.getElementById("date3").innerText;
             break;
-
         default:
 
             break;
@@ -143,16 +115,13 @@ function getRadioResults() {
 
 function addScheduleRow() {
 
-    let input = getRadioResults()
+    let input = getRangeResults()
+    console.log(input)
 
     let dateTd = document.getElementById("DateCell2")
     let timeTd = document.getElementById("TimeCell2")
 
     let strDate, strTime;
-
-    let startIndex = input.indexOf("|")
-
-    input = input.substring((startIndex + 2), input.length)
 
     let parts = input.split("-")
 
@@ -170,7 +139,7 @@ function addScheduleRow() {
 }
 
 function editExistingMeet() {
-    let input = getRadioResults()
+    let input = getRangeResults()
 
     let dateTd;
     let timeTd;
@@ -250,9 +219,7 @@ async function makeMeeting() {
 }
 
 async function openEvent(scheduleId) {
-
     const url = "http://localhost:8090/vote"
-
     let frag;
 
     try {
@@ -275,31 +242,17 @@ async function openEvent(scheduleId) {
 
     hiddenDiv.innerHTML = frag
 
-    //TODO die Werte im Voting an Schedule row anpassen
     let row = document.getElementById(scheduleId)
 
     let cells = row.children
 
-    let concatDateTime = cells[2].innerHTML + " - " + cells[3].innerHTML;
-
-    document.getElementById("radiolbl2").innerHTML = "3 | " + concatDateTime;
+    document.getElementById("date2").innerHTML = cells[2].innerHTML + " - " + cells[3].innerHTML;
 
     document.getElementById("btnSendVote").hidden = true
     document.getElementById("btnEditMeet").hidden = false
 
     document.getElementById("saveScheduleId").innerText = scheduleId;
-
-    let absLbls = document.getElementsByName("absence")
-
-    for (let i = 0; i < absLbls.length; i++) {
-        absLbls[i].hidden = false
-    }
-
-    document.getElementById("radio1_X").hidden = false;
-    document.getElementById("radio2_X").hidden = false;
-    document.getElementById("radio3_X").hidden = false;
-
-    let bigstagee = document.getElementById("bigStage").innerHTML = hiddenDiv.innerHTML
+    document.getElementById("bigStage").innerHTML = hiddenDiv.innerHTML
 
     UnCrossDates()
 }
