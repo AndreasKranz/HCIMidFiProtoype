@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3 class="text-center">Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!</h3>
+
+
+<form>
+    <input type="radio" id="radio1_X" name="favTimeOpt1" value="0" class="form-check-input" hidden>
+    <label for="radio1_X" name="absence" class="form-check-label" hidden>X</label>
+
+
+    <input type="radio" id="radio1_1" name="favTimeOpt1" value="1" class="form-check-input">
+    <label for="radio1_1" class="form-check-label">1</label>
+    <input type="radio" id="radio1_2" name="favTimeOpt1" value="2" class="form-check-input">
+    <label for="radio1_2" class="form-check-label">2</label>
+    <input type="radio" id="radio1_3" name="favTimeOpt1" value="3" class="form-check-input">
+    <label for="radio1_3" class="form-check-label" id="radiolbl1">3 | Th 11.10 - 3.15pm</label><br>
+</form>
+<br>
+<form>
+    <input type="radio" id="radio2_X" name="favTimeOpt2" value="0" class="form-check-input" hidden>
+    <label for="radio2_X" name="absence" class="form-check-label" hidden>X</label>
+
+    <input type="radio" id="radio2_1" name="favTimeOpt2" value="1" class="form-check-input">
+    <label for="radio2_1" class="form-check-label">1</label>
+    <input type="radio" id="radio2_2" name="favTimeOpt2" value="2" class="form-check-input">
+    <label for="radio2_2" class="form-check-label">2</label>
+    <input type="radio" id="radio2_3" name="favTimeOpt2" value="3" class="form-check-input">
+    <label for="radio2_3" class="form-check-label" id="radiolbl2">3 | Fr 11.11 - 4.00pm</label><br>
+</form>
+<br>
+<form>
+    <input type="radio" id="radio3_X" name="favTimeOpt3" value="0" class="form-check-input" hidden>
+    <label for="radio3_X" name="absence" class="form-check-label" hidden>X</label>
+
+    <input type="radio" id="radio3_1" name="favTimeOpt3" value="1" class="form-check-input">
+    <label for="radio3_1" class="form-check-label">1</label>
+    <input type="radio" id="radio3_2" name="favTimeOpt3" value="2" class="form-check-input">
+    <label for="radio3_2" class="form-check-label">2</label>
+    <input type="radio" id="radio3_3" name="favTimeOpt3" value="3" class="form-check-input">
+    <label for="radio3_3" class="form-check-label" id="radiolbl3">3 | Fr 11.11 - 9.30pm</label><br>
+</form>
+<br>
+
+<button id="btnSendVote" class="btn btn-primary" onclick="addScheduleRow()">Vote!</button>
+<button id="btnEditMeet" class="btn btn-primary" onclick="editExistingMeet()" hidden>Vote!</button>
+
+<div id="saveScheduleId" hidden></div>
+
+<div id="result"></div>
+
+</body>
+</html>
+
+<script>
+
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div id="byTimeFrame">
+
+    <h3>Set up a meeting and find a suitable location!</h3>
+
+    <form>
+        <label for="eName" class="form-label">Event name:</label>
+        <input id="eName" type="text" class="form-control"><br>
+        <label for="eDate" class="form-label">Date and time:</label>
+        <input type="datetime-local" id="eDate" class="form-control"><br>
+        <label for="eActivity" class="form-label">Activity:</label>
+        <select id="eActivity" class="form-select">
+            <option value="Soccer">Soccer</option>
+            <option value="Studying">Studying</option>
+            <option value="Theater">Theater</option>
+            <option value="Board_Games">Board Game Cafè</option>
+        </select><br>
+        <label for="eParticipants" class="form-label">Participants:</label>
+        <input type="email" id="eParticipants" multiple class="form-control"><br>
+    </form>
+
+    <div class="row">
+        <form th:action="@{/vote}" method="post">
+            <input type="submit" value="Make" class="btn btn-outline-info"/>
+        </form>
+        <form th:action="@{/}" method="post">
+            <input type="submit" value="Cancel" class="btn btn-outline-success"/>
+        </form>
+    </div>
+
+
+</div>
+
+</html>

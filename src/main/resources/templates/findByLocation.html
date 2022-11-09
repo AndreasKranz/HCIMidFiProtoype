@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div>
+
+    <h3>Set up a meeting and find a Time!</h3>
+
+    <form>
+        <label for="eName" class="form-label-label">Event name:</label>
+        <input id="eName" type="text" class="form-control"><br>
+        <label for="eParticipants" class="form-label">Participants:</label>
+        <input type="email" id="eParticipants" multiple class="form-control"><br>
+        <label for="eLocation" class="form-label">Location:</label>
+
+        <table>
+            <tbody>
+            <tr>
+                <td class="col-3">
+                    <img src="/img/hci1.PNG" alt="Movie Theater" class="img-fluid">
+                </td>
+                <td class="col-3">
+                    <img src="/img/hci2.PNG" alt="ECC" class="img-fluid">
+                </td>
+                <td class="col-3">
+                    <img src="/img/hci3.PNG" alt="Soccer Field" class="img-fluid">
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    <input type="radio" name="radioLoc" id="radioTheater">
+                    <label for="radioTheater" class="text-center">Movie Theater</label>
+                </td>
+                <td class="text-center">
+                    <input type="radio" name="radioLoc" id="radioECC">
+                    <label for="radioECC" class="text-center">ECC</label>
+                </td>
+                <td class="text-center">
+                    <input type="radio" name="radioLoc" id="radioSoccer">
+                    <label for="radioSoccer" class="text-center">Soccer Field</label>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+       <!-- <select id="eLocation" class="form-select">
+            <option>Soccerfield</option>
+            <option>ECC</option>
+            <option>Engineering Building A</option>
+            <option>City Hall</option>
+        </select><br>-->
+    </form>
+
+    <div class="row">
+        <form th:action="@{/}" method="post">
+            <input type="submit" value="Make" class="btn btn-outline-info"/>
+        </form>
+        <form th:action="@{/}" method="post">
+            <input type="submit" value="Cancel" class="btn btn-outline-success"/>
+        </form>
+    </div>
+
+
+</div>
+
+</html>
