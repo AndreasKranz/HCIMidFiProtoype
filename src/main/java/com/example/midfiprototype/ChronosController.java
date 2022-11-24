@@ -50,4 +50,10 @@ public class ChronosController {
         return "keywordSearchResult";
     }
 
+
+    @GetMapping("/finished")
+    public String getFinishedSchedules() {
+        return "finishedSchedules";
+    }
+
 }
