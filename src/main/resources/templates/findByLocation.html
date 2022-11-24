@@ -1,72 +1,117 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <style>
-        #selectedLocation {
-            color: red;
-        }
+      #selectedLocation {
+        color: red;
+      }
 
-        #search-container {
-            display: flex;
-        }
+      #search-container {
+        display: flex;
+      }
 
-        #keywordsubmit {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2px 3px;
-            background-color: #ededed;
-            border: 1px solid black;
-            font-size: 12px;
-            margin-left: 10px;
-        }
+      #keywordsubmit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 3px;
+        background-color: #ededed;
+        border: 1px solid black;
+        font-size: 12px;
+        margin-left: 10px;
+      }
     </style>
-</head>
-<body>
-<div>
-    <h3>Set up a meeting and find a Time!</h3>
 
-    <div class="col-3">
-
-
+    <script language="javascript">
+      function alert() {
+        if ((textBox = null)) {
+          alert("Please input all information");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h3>Set up a meeting and find a Time!</h3>
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          style="width: 25%"
+          aria-valuenow="25"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+      <div class="col-3">
         <form>
-            <label for="eName" class="form-label">Event name:</label>
-            <input id="eName" type="text" class="form-control" placeholder="MyFirstEvent"/><br/>
-            <label for="eParticipants" class="form-label">Participants:</label>
-            <input type="email" id="eParticipants" multiple class="form-control" placeholder="average@joe.com"/>
-            <br/>
-            <label for="keyword" class="form-label">Location: <span id="selectedLocation"></span></label>
-            <table>
-                <tbody>
-                <tr>
-                    <td class="text-center">
-                        <form>
-                            <div id="search-container">
-                                <input type="text" id="keyword" name="keyword" class="form-control"
-                                       placeholder="search by keywords..." value=""/>
-                                <button type="button" class="btn btn-secondary"
-                                        onclick="window.open('/searchResult'); search();">Search
-                                </button>
-
-                            </div>
-                        </form>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+          <label for="eName" class="form-label">Event name:</label>
+          <input
+            onchange="alert()"
+            id="eName"
+            type="text"
+            class="form-control"
+            placeholder="MyFirstEvent"
+          /><br />
+          <label for="eParticipants" class="form-label">Participants:</label>
+          <input
+            onchange="alert()"
+            type="email"
+            id="eParticipants"
+            multiple
+            class="form-control"
+            placeholder="average@joe.com"
+          />
+          <br />
+          <label for="keyword" class="form-label"
+            >Location: <span id="selectedLocation"></span
+          ></label>
+          <small id="emailHelp" class="form-text text-muted"
+            >Find the location easily.</small
+          >
+          <table>
+            <tbody>
+              <tr>
+                <td class="text-center">
+                  <form>
+                    <div id="search-container">
+                      <input
+                        type="text"
+                        id="keyword"
+                        name="keyword"
+                        class="form-control"
+                        placeholder="search by keywords..."
+                        value=""
+                      />
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="window.open('/searchResult'); search();"
+                      >
+                        Search
+                      </button>
+                    </div>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </form>
+      </div>
 
-    </div>
-
-    <div class="btn-group">
-        <p><br></p>
+      <div class="btn-group">
+        <p><br /></p>
         <form th:action="@{/}" method="post">
-            <input type="submit" value="Cancel" class="btn btn-outline-success"/>
+          <input type="submit" value="Cancel" class="btn btn-outline-success" />
         </form>
-        <button type="button" onclick="makeMeeting()" class="btn btn-outline-primary">Make!</button>
-
+        <button
+          type="button"
+          onclick="makeMeeting()"
+          class="btn btn-outline-primary"
+        >
+          Make!
+        </button>
+      </div>
     </div>
-
-</div>
-</body>
+  </body>
 </html>

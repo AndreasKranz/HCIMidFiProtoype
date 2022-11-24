@@ -1,189 +1,235 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Chronos</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
     <script src="/js/bootstrap.bundle.js"></script>
     <script src="/js/scripterino.js"></script>
-
-
-</head>
-<body onload="loadmappic()">
-
-<!--<h1 class="text-center" onclick="loadmappic()">Chronos</h1>
+  </head>
+  <body onload="loadmappic()">
+    <!--<h1 class="text-center" onclick="loadmappic()">Chronos</h1>
 -->
 
-<nav class="navbar navbar-expand-md navbar-light bg-primary">
-    <div class="container-fluid">
+    <nav class="navbar navbar-expand-md navbar-light bg-primary">
+      <div class="container-fluid">
         <a class="navbar-brand" href="#" onclick="loadmappic()">
-            <b>Welcome to Chronos</b>
+          <b>Welcome to Chronos</b>
         </a>
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Create Meeting</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#" onclick="loadLocKnownForm()">Search Time</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="loadTimeKnownForm()">Search Location</a></li>
-                    </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                >Create Meeting</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#" onclick="loadLocKnownForm()"
+                    >Search Time</a
+                  >
                 </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="loadTimeKnownForm()"
+                    >Search Location</a
+                  >
+                </li>
+              </ul>
+            </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Invitations</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#" onclick="openVoting()">Invitation from Hoy</a></li>
-                        <li><a class="dropdown-item" href="#">Example</a></li>
-                    </ul>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                >Invitations</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#" onclick="openVoting()"
+                    >Invitation from Hoy</a
+                  >
                 </li>
-            </ul>
+                <li><a class="dropdown-item" href="#">Example</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-<div id="mainDiv" class="row">
-    <div id="leftBar" class="col-3">
+    <div id="mainDiv" class="row">
+      <div id="leftBar" class="col-3">
         <div id="calendarDiv" class="border border-dark">
-            <h4 class="text-center">Calendar</h4>
-            <table class="table table-bordered">
-                <thead class="thead table-secondary">
-                <tr>
-                    <th>M</th>
-                    <th>T</th>
-                    <th>W</th>
-                    <th>T</th>
-                    <th>F</th>
-                    <th>S</th>
-                    <th>S</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>31</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td class="table-info">11</td>
-                    <td class="table-info">12</td>
-                    <td>13</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>15</td>
-                    <td>16</td>
-                    <td>17</td>
-                    <td>18</td>
-                    <td>19</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>21</td>
-                    <td>22</td>
-                    <td>23</td>
-                    <td>24</td>
-                    <td>25</td>
-                    <td>26</td>
-                    <td>27</td>
-                </tr>
-                <tr>
-                    <td>28</td>
-                    <td>29</td>
-                    <td>30</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                </tr>
-
-                </tbody>
-            </table>
-
+          <h4 class="text-center">Calendar</h4>
+          <table class="table table-bordered">
+            <thead class="thead table-secondary">
+              <tr>
+                <th>M</th>
+                <th>T</th>
+                <th>W</th>
+                <th>T</th>
+                <th>F</th>
+                <th>S</th>
+                <th>S</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>31</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td class="table-info">11</td>
+                <td class="table-info">12</td>
+                <td>13</td>
+              </tr>
+              <tr>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+              </tr>
+              <tr>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div id="scheduleDiv" class="border border-dark">
-            <h3 class="text-center">Schedule</h3>
-            <table class="table table-hover" id="tableSchedule">
-                <thead class="table table-secondary">
-                <th>No.</th>
-                <th>Name</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Participants</th>
-                <th>Etc.</th>
-                </thead>
-                <tbody>
-                <tr id="scheduleRow1">
-                    <td>1</td>
-                    <td>Soccer</td>
-                    <td id="DateCell0">Fr 11.11</td>
-                    <td id="TimeCell0">6:00pm</td>
-                    <td>Trick, Trick, Track</td>
-                    <td>
-                        <button id="btnDetails1" name="btnDetailsEdit" onclick="openEvent('scheduleRow1')"
-                                class="btn btn-outline-info">Details
-                        </button>
-                    </td>
-                </tr>
-                <tr id="scheduleRow2">
-                    <td>2</td>
-                    <td>Study Group Meeting</td>
-                    <td id="DateCell1">Sa 11.12</td>
-                    <td id="TimeCell1">4.30pm</td>
-                    <td>Jon</td>
-                    <td>
-                        <button id="btnDetails2" name="btnDetailsEdit" onclick="openEvent('scheduleRow2')"
-                                class="btn btn-outline-info">Details
-                        </button>
-                    </td>
-                </tr>
-                <tr id="scheduleRowHidden" hidden>
-                    <td>3</td>
-                    <td>Movie Theater</td>
-                    <td id="DateCell2">XX</td>
-                    <td id="TimeCell2">YY</td>
-                    <td>Hoy, Dilan</td>
-                    <td>
-                        <button id="btnDetails3" name="btnDetailsEdit" onclick="openEvent('scheduleRowHidden')"
-                                class="btn btn-outline-info">Details
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-
+          <h3 class="text-center">Schedule</h3>
+          <table class="table table-hover" id="tableSchedule">
+            <thead class="table table-secondary">
+              <th>No.</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Participants</th>
+              <th>Etc.</th>
+            </thead>
+            <tbody>
+              <tr id="scheduleRow1">
+                <td>1</td>
+                <td>Soccer</td>
+                <td id="DateCell0">Fr 11.11</td>
+                <td id="TimeCell0">6:00pm</td>
+                <td>Trick, Trick, Track</td>
+                <td>
+                  <button
+                    id="btnDetails1"
+                    name="btnDetailsEdit"
+                    onclick="openEvent('scheduleRow1')"
+                    class="btn btn-outline-info"
+                  >
+                    Details
+                  </button>
+                </td>
+              </tr>
+              <tr id="scheduleRow2">
+                <td>2</td>
+                <td>Study Group Meeting</td>
+                <td id="DateCell1">Sa 11.12</td>
+                <td id="TimeCell1">4.30pm</td>
+                <td>Jon</td>
+                <td>
+                  <button
+                    id="btnDetails2"
+                    name="btnDetailsEdit"
+                    onclick="openEvent('scheduleRow2')"
+                    class="btn btn-outline-info"
+                  >
+                    Details
+                  </button>
+                </td>
+              </tr>
+              <tr id="scheduleRowHidden" hidden>
+                <td>3</td>
+                <td>Movie Theater</td>
+                <td id="DateCell2">XX</td>
+                <td id="TimeCell2">YY</td>
+                <td>Hoy, Dilan</td>
+                <td>
+                  <button
+                    id="btnDetails3"
+                    name="btnDetailsEdit"
+                    onclick="openEvent('scheduleRowHidden')"
+                    class="btn btn-outline-info"
+                  >
+                    Details
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
 
-    </div>
+      <div id="rightBar" class="col-9 border border-dark">
+        <div id="bigStage"></div>
 
-    <div id="rightBar" class="col-9 border border-dark">
-        <div id="bigStage">
-        </div>
-
-        <!--
         <div id="buttons">
-            <button id="btnTimeKnown" class="btn btn-primary" onclick="loadTimeKnownForm()">Time known</button>
-            <br>
-            <button id="btnLocKnown" class="btn btn-primary" onclick="loadLocKnownForm()">Location known</button>
-            <br>
+          <button
+            id="btnTimeKnown"
+            class="btn btn-primary"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            data-bs-original-title="Is the meeting time fixed? Then let's press this button to find the best place."
+            onclick="loadTimeKnownForm()"
+          >
+            Time known
+          </button>
+          <br />
+          <button
+            id="btnLocKnown"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            data-bs-original-title="Have you decided on the meeting place? Then press this button to find the best time."
+            class="btn btn-primary"
+            onclick="loadLocKnownForm()"
+          >
+            Location known
+          </button>
+          <br />
         </div>
--->
-        <div id="hiddenDiv" hidden>
-        </div>
+
+        <div id="hiddenDiv" hidden></div>
+      </div>
     </div>
-
-</div>
-
-
-</body>
+  </body>
 </html>
-
