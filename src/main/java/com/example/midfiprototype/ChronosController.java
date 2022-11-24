@@ -17,7 +17,7 @@ public class ChronosController {
     @Autowired
     ChronosService service;
 
-    ArrayList<Meeting> tempMeetings;
+    ArrayList<Meeting> tempMeetings = new ArrayList<>();
 
     @PostMapping(value = "/createMeet", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createMeeting(@RequestBody MeetingDTO dto) {
