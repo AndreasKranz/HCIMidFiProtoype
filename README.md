@@ -1,4 +1,4 @@
-# HCIMidFiProtoype
+# HCIHiFiProtoype
 Not an executable, needs to be opened witha IDE (i.e. Intellij)
 AJeong Sung
 Andreas Kranz
