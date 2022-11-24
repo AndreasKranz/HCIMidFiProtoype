@@ -143,70 +143,58 @@
         </div>
 
         <div id="scheduleDiv" class="border border-dark">
-          <h3 class="text-center">Schedule</h3>
-          <table class="table table-hover" id="tableSchedule">
-            <thead class="table table-secondary">
-              <th>No.</th>
-              <th>Name</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Participants</th>
-              <th>Etc.</th>
-            </thead>
-            <tbody>
-              <tr id="scheduleRow1">
-                <td>1</td>
-                <td>Soccer</td>
-                <td id="DateCell0">Fr 11.11</td>
-                <td id="TimeCell0">6:00pm</td>
-                <td>Trick, Trick, Track</td>
-                <td>
-                  <button
-                    id="btnDetails1"
-                    name="btnDetailsEdit"
-                    onclick="openEvent('scheduleRow1')"
-                    class="btn btn-outline-info"
-                  >
-                    Details
-                  </button>
-                </td>
-              </tr>
-              <tr id="scheduleRow2">
-                <td>2</td>
-                <td>Study Group Meeting</td>
-                <td id="DateCell1">Sa 11.12</td>
-                <td id="TimeCell1">4.30pm</td>
-                <td>Jon</td>
-                <td>
-                  <button
-                    id="btnDetails2"
-                    name="btnDetailsEdit"
-                    onclick="openEvent('scheduleRow2')"
-                    class="btn btn-outline-info"
-                  >
-                    Details
-                  </button>
-                </td>
-              </tr>
-              <tr id="scheduleRowHidden" hidden>
-                <td>3</td>
-                <td>Movie Theater</td>
-                <td id="DateCell2">XX</td>
-                <td id="TimeCell2">YY</td>
-                <td>Hoy, Dilan</td>
-                <td>
-                  <button
-                    id="btnDetails3"
-                    name="btnDetailsEdit"
-                    onclick="openEvent('scheduleRowHidden')"
-                    class="btn btn-outline-info"
-                  >
-                    Details
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+
+            <h3 class="text-center">Schedule</h3>
+            <a href="/finished">Show Finished schedules</a>
+            <table class="table table-hover" id="tableSchedule">
+                <thead class="table table-secondary">
+                <th>No.</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Participants</th>
+                <th>Etc.</th>
+                </thead>
+                <tbody>
+                <tr id="scheduleRow1">
+                    <td>1</td>
+                    <td>Soccer</td>
+                    <td id="DateCell0">Fr 11.11</td>
+                    <td id="TimeCell0">6:00pm</td>
+                    <td>Trick, Trick, Track</td>
+                    <td>
+                        <button id="btnDetails1" name="btnDetailsEdit" onclick="openEvent('scheduleRow1')"
+                                class="btn btn-outline-info">Details
+                        </button>
+                    </td>
+                </tr>
+                <tr id="scheduleRow2">
+                    <td>2</td>
+                    <td>Study Group Meeting</td>
+                    <td id="DateCell1">Sa 11.12</td>
+                    <td id="TimeCell1">4.30pm</td>
+                    <td>Jon</td>
+                    <td>
+                        <button id="btnDetails2" name="btnDetailsEdit" onclick="openEvent('scheduleRow2')"
+                                class="btn btn-outline-info">Details
+                        </button>
+                    </td>
+                </tr>
+                <tr id="scheduleRowHidden" hidden>
+                    <td>3</td>
+                    <td>Movie Theater</td>
+                    <td id="DateCell2">XX</td>
+                    <td id="TimeCell2">YY</td>
+                    <td>Hoy, Dilan</td>
+                    <td>
+                        <button id="btnDetails3" name="btnDetailsEdit" onclick="openEvent('scheduleRowHidden')"
+                                class="btn btn-outline-info">Details
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
       </div>
 
