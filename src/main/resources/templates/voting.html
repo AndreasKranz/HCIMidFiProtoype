@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Title</title>
     <style>
         table {
             width: auto;
             text-align: center;
+            padding:30px;
+            font-size: 1.2rem;
         }
 
         tr {
-            width: auto;
-            height: 50px;
+            width: 700px;
+            height: 100px;
+            border-bottom: 1px;
         }
 
         th {
-            width: 150px;
-
+            width: 300px;
+            height: 100px;
+            padding: 30px;
         }
 
         td {
-            width: auto;
+            width: 400px;
+            height: 100px;
         }
 
         datalist {
@@ -28,79 +33,102 @@
             flex-direction: column;
             justify-content: space-between;
             writing-mode: vertical-lr;
-            width: 200px;
+            width: 400px;
         }
 
         option {
+            width: 30px;
+            font-size: 30px;
             padding: 0;
         }
+
+        input[type="range"] {
+          width: 400px;
+          margin: 0;
+        }
+
+        td button{
+            float: right;
+            margin: 0 1rem 0 1rem;
+        }
+
+
+
     </style>
 </head>
 <body>
-
-<h3 class="text-center">Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!</h3>
-
+<h2 class="text-center">
+    Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!
+</h2>
+<div class="progress">
+    <div
+            class="progress-bar"
+            role="progressbar"
+            style="width: 25%"
+            aria-valuenow="80"
+            aria-valuemin="0"
+            aria-valuemax="100"
+    ></div>
+</div>
 <table>
     <tr>
         <th>Time</th>
         <th>Preference</th>
     </tr>
-    <tr>
+    <tr>     ️
         <th id="date1">Th 11.10 - 3.15pm</th>
         <td>
-            <input type="range" id="preferTime1" name="preferTime" list="score1" min="0" max="5" value="4" step="1">
+            <input type="range" id="preferTime1" name="preferTime" list="score1" min="0" max="100" value="75" step="25">
             <datalist id="score1">
-                <option value="0" label="0"></option>
-                <option value="1" label="1"></option>
-                <option value="2" label="2"></option>
-                <option value="3" label="3"></option>
-                <option value="4" label="4"></option>
-                <option value="5" label="5"></option>
+                <option value="0" label="&#x274C"></option>
+                <option value="25" label="&#x1F610"></option>
+                <option value="50" label="&#x1F62E"></option>
+                <option value="75" label="&#x1F600"></option>
+                <option value="100" label="&#x1F60D"></option>
             </datalist>
         </td>
         <td>
-            <input type="button" value="delete" class="btn btn-secondary" id="btnDel1">
-            </td>
+            <input hidden type="button" value="delete" class="btn btn-secondary" id="btnDel1">
+        </td>
     </tr>
     <tr>
         <th id="date2">Fr 11.11 - 4.00pm</th>
         <td>
-            <input type="range" id="preferTime2" name="preferTime" list="score2" min="0" max="5" value="4" step="1">
+            <input type="range" id="preferTime2" name="preferTime" list="score2" min="0" max="100" value="75" step="25">
             <datalist id="score2">
-                <option value="0" label="0"></option>
-                <option value="1" label="1"></option>
-                <option value="2" label="2"></option>
-                <option value="3" label="3"></option>
-                <option value="4" label="4"></option>
-                <option value="5" label="5"></option>
+                <option value="0" label="&#x274C"></option>
+                <option value="25" label="&#x1F610"></option>
+                <option value="50" label="&#x1F62E"></option>
+                <option value="75" label="&#x1F600"></option>
+                <option value="100" label="&#x1F60D"></option>
             </datalist>
         </td>
         <td>
-            <input type="button" value="delete" class="btn btn-secondary" id="btnDel2">
+            <input hidden type="button" value="delete" class="btn btn-secondary" id="btnDel2">
         </td>
     </tr>
     <tr>
         <th id="date3">Fr 11.11 - 9.30pm</th>
         <td>
-            <input type="range" id="preferTime3" name="preferTime" list="score3" min="0" max="5" value="4" step="1">
+            <input type="range" id="preferTime3" name="preferTime" list="score3" min="0" max="100" value="75" step="25">
             <datalist id="score3">
-                <option value="0" label="0"></option>
-                <option value="1" label="1"></option>
-                <option value="2" label="2"></option>
-                <option value="3" label="3"></option>
-                <option value="4" label="4"></option>
-                <option value="5" label="5"></option>
+                <option value="0" label="&#x274C"></option>
+                <option value="25" label="&#x1F610"></option>
+                <option value="50" label="&#x1F62E"></option>
+                <option value="75" label="&#x1F600"></option>
+                <option value="100" label="&#x1F60D"></option>
             </datalist>
         </td>
         <td>
-            <input type="button" value="delete" class="btn btn-secondary" id="btnDel3">
+            <input hidden type="button" value="delete" class="btn btn-secondary" id="btnDel3">
         </td>
     </tr>
     <tr>
         <th></th>
         <td>
             <button id="btnEditMeet" class="btn btn-primary btn-lg" onclick="editExistingMeet()" hidden>Vote!</button>
-            <button id="btnSendVote" class="btn btn-primary btn-lg" onclick="addScheduleRow()">Vote!</button>
+            <button id="btnLateVote" class="btn btn-light btn-lg" onclick="">Vote Later!</button>
+            <button id="btnSendVote" class="btn btn-dark btn-lg" onclick="addScheduleRow()">Vote!</button>
         </td>
     </tr>
 </table>
