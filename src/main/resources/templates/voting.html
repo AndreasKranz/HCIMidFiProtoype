@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
     <style>
         table {
@@ -55,13 +55,23 @@
 
 
     </style>
-</head>
-<body>
-
-<h3 class="text-center">Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!</h3>
-
-<table>
-    <tr>
+  </head>
+  <body>
+    <h3 class="text-center">
+      Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!
+    </h3>
+    <div class="progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        style="width: 25%"
+        aria-valuenow="80"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+    <table>
+      <tr>
         <th>Time</th>
         <th>Preference</th>
     </tr>
@@ -98,8 +108,8 @@
         <td>
             <input hidden type="button" value="delete" class="btn btn-secondary" id="btnDel2">
         </td>
-    </tr>
-    <tr>
+      </tr>
+      <tr>
         <th id="date3">Fr 11.11 - 9.30pm</th>
         <td>
             <input type="range" id="preferTime3" name="preferTime" list="score3" min="0" max="5" value="4" step="1">
@@ -115,20 +125,20 @@
         <td>
             <input hidden type="button" value="delete" class="btn btn-secondary" id="btnDel3">
         </td>
-    </tr>
-    <tr>
+      </tr>
+      <tr>
         <th></th>
         <td>
             <button id="btnEditMeet" class="btn btn-primary btn-lg" onclick="editExistingMeet()" hidden>Vote!</button>
             <button id="btnLateVote" class="btn btn-light btn-lg" onclick="">Vote Later!</button>
             <button id="btnSendVote" class="btn btn-dark btn-lg" onclick="addScheduleRow()">Vote!</button>
         </td>
-    </tr>
-</table>
+      </tr>
+    </table>
 
-<div id="saveScheduleId" hidden></div>
+    <div id="saveScheduleId" hidden></div>
 
-<div id="result"></div>
+    <div id="result"></div>
 
-</body>
+  </body>
 </html>

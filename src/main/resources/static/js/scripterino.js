@@ -182,8 +182,18 @@ function editExistingMeet() {
 async function makeMeeting() {
 
     let eName = document.getElementById("eName").value;
-    console.log(eName)
-    //let eParticipants = document.getElementById("eParticipants").value
+
+
+    /*let obj = {
+        taskTitle: title,
+        tdescription: description,
+        assignedEmail: assignee,
+        tpriority: prio,
+    }
+
+    let createPayload = JSON.stringify(obj);
+*/
+
 
 
     let str = "Sucess! You have sent the voting for the meeting '" + eName + "' to the participants!"
