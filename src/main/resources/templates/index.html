@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
     <script src="/js/bootstrap.bundle.js"></script>
     <script src="/js/mainscript.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4y0yajhyoq"></script>
 </head>
 <body onload="loadmappic()">
 <!--<h1 class="text-center" onclick="loadmappic()">Chronos</h1>
@@ -29,36 +30,23 @@
                     >
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="#" onclick="loadLocKnownForm()"
-                            >Search Time</a
-                            >
+                            <a class="dropdown-item" href="#" onclick="loadLocKnownForm()">Search Time</a>
                         </li>
                         <li>
-                            <a
-                                    class="dropdown-item"
-                                    href="#"
-                                    onclick="loadTimeKnownForm()"
-                            >Search Location</a
-                            >
+                            <a class="dropdown-item" href="#" onclick="loadTimeKnownForm()">Search Location</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                    >Invitations</a
-                    >
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Invitations</a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="#" onclick="openVoting()"
-                            >Invitation from Hoy</a
-                            >
+                            <a class="dropdown-item" href="#" onclick="openVoting()">Invitation from Hoy</a>
                         </li>
-                        <li><a class="dropdown-item" href="#">Example</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Example</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

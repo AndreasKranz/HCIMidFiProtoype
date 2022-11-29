@@ -78,7 +78,7 @@ public class ChronosController {
         return "voting";
     }
 
-    @PostMapping(value = "/map")
+    @RequestMapping(value = "/map")
     public String retrieveMap() {
         return "mapFragment";
     }

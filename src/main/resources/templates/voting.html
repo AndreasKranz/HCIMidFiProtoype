@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>Title</title>
     <style>
-        table {
+        .voteTable {
             width: auto;
             text-align: center;
-            padding:30px;
+            padding: 30px;
             font-size: 1rem;
         }
 
-        tr {
+        .voteTr {
             width: 700px;
             height: 100px;
             border-bottom: 1px;
         }
 
-        th {
+        .voteTh {
             width: 300px;
             height: 100px;
             padding: 30px;
         }
 
-        td {
+        .voteTd {
             width: 400px;
             height: 100px;
         }
@@ -43,41 +43,40 @@
         }
 
         input[type="range"] {
-          width: 400px;
-          margin: 0;
+            width: 400px;
+            margin: 0;
         }
 
-        td button{
+        td button {
             float: right;
             margin: 0 1rem 0 1rem;
         }
 
 
-
     </style>
-  </head>
-  <body>
-    <h3 class="text-center">
-      Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!
-    </h3>
-    <div class="progress">
-      <div
-        class="progress-bar"
-        role="progressbar"
-        style="width: 25%"
-        aria-valuenow="80"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      ></div>
-    </div>
-    <table>
-      <tr>
-        <th>Time</th>
-        <th>Preference</th>
+</head>
+<body>
+<h3 class="text-center">
+    Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!
+</h3>
+<div class="progress">
+    <div
+            class="progress-bar"
+            role="progressbar"
+            style="width: 25%"
+            aria-valuenow="80"
+            aria-valuemin="0"
+            aria-valuemax="100"
+    ></div>
+</div>
+<table class="voteTable">
+    <tr class="voteTr">
+        <th class="voteTh" style="font-size: 2em">Time</th>
+        <th class="voteTh" style="font-size: 2em">Preference</th>
     </tr>
-    <tr>     ️
-        <th id="date1">Th 11.10 - 3.15pm</th>
-        <td>
+    <tr class="voteTr"> ️
+        <th id="date1" class="voteTh">Th 11.10 - 3.15pm</th>
+        <td class="voteTd">
             <input type="range" id="preferTime1" name="preferTime" list="score1" min="0" max="5" value="4" step="1">
             <datalist id="score1">
                 <option value="0" label="&#x274C"></option>
@@ -88,13 +87,13 @@
                 <option value="5" label="&#x2B55"></option>
             </datalist>
         </td>
-        <td>
+        <td class="voteTd">
             <input hidden type="button" value="delete" class="btn btn-secondary" id="btnDel1">
         </td>
     </tr>
-    <tr>
-        <th id="date2">Fr 11.11 - 4.00pm</th>
-        <td>
+    <tr class="voteTr">
+        <th id="date2" class="voteTh">Fr 11.11 - 4.00pm</th>
+        <td class="voteTd">
             <input type="range" id="preferTime2" name="preferTime" list="score2" min="0" max="5" value="4" step="1">
             <datalist id="score2">
                 <option value="0" label="&#x274C"></option>
@@ -105,13 +104,13 @@
                 <option value="5" label="&#x2B55"></option>
             </datalist>
         </td>
-        <td>
+        <td class="voteTd">
             <input hidden type="button" value="delete" class="btn btn-secondary" id="btnDel2">
         </td>
-      </tr>
-      <tr>
-        <th id="date3">Fr 11.11 - 9.30pm</th>
-        <td>
+    </tr>
+    <tr class="voteTr">
+        <th id="date3" class="voteTh">Fr 11.11 - 9.30pm</th>
+        <td class="voteTd">
             <input type="range" id="preferTime3" name="preferTime" list="score3" min="0" max="5" value="4" step="1">
             <datalist id="score3">
                 <option value="0" label="&#x274C"></option>
@@ -122,23 +121,27 @@
                 <option value="5" label="&#x2B55"></option>
             </datalist>
         </td>
-        <td>
+        <td class="voteTd">
             <input hidden type="button" value="delete" class="btn btn-secondary" id="btnDel3">
         </td>
-      </tr>
-      <tr>
-        <th></th>
-        <td>
-            <button id="btnEditMeet" class="btn btn-primary btn-lg" onclick="editExistingMeet()" hidden>Vote!</button>
-            <button id="btnLateVote" class="btn btn-light btn-lg" onclick="">Vote Later!</button>
-            <button id="btnSendVote" class="btn btn-dark btn-lg" onclick="addScheduleRow()">Vote!</button>
+    </tr>
+    <tr class="voteTr">
+        <th class="voteTh"></th>
+        <td class="voteTd">
+            <button id="btnLateVote" class="btn btn-light btn-lg" onclick="loadmappic()">Vote Later!</button>
+            <button id="btnEditMeet" class="btn btn-primary btn-lg" onclick="editExistingMeet()" hidden>Change Voting!
+            </button>
+            <button id="btnSendVote" class="btn btn-primary btn-lg" onclick="addScheduleRow()">Vote!</button>
         </td>
-      </tr>
-    </table>
+        <td>
+            <button id="markAbsence" class="btn btn-danger btn-lg" onclick="hideSchedule()" hidden>Absence!</button>
+        </td>
+    </tr>
+</table>
 
-    <div id="saveScheduleId" hidden></div>
+<div id="saveScheduleId" hidden></div>
 
-    <div id="result"></div>
+<div id="result"></div>
 
-  </body>
+</body>
 </html>

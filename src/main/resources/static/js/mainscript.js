@@ -170,7 +170,7 @@ function editExistingMeet() {
 
     let startIndex = input.indexOf("|")
 
-    input = input.substring((startIndex + 2), input.length)
+   // input = input.substring((startIndex + 2), input.length)
 
     let parts = input.split("-")
 
@@ -181,6 +181,27 @@ function editExistingMeet() {
     timeTd.innerHTML = strTime
     //document.getElementById("result").innerHTML = scheduleRowId;
 
+}
+
+function hideSchedule(){
+
+    let scheduleRowId = document.getElementById("saveScheduleId").innerText;
+
+    switch (scheduleRowId) {
+        case "scheduleRow1":
+            document.getElementById("scheduleRow1").hidden = true;
+
+            break;
+        case "scheduleRow2":
+            document.getElementById("scheduleRow2").hidden = true
+            break;
+
+        case "scheduleRowHidden":
+            document.getElementById("scheduleRowHidden").hidden = true;
+            break;
+    }
+
+    loadmappic();
 }
 
 function checkInputs() {
@@ -275,6 +296,7 @@ async function openEvent(scheduleId) {
 
     document.getElementById("btnSendVote").hidden = true
     document.getElementById("btnEditMeet").hidden = false
+    document.getElementById("markAbsence").hidden = false
 
     document.getElementById("saveScheduleId").innerText = scheduleId;
     document.getElementById("bigStage").innerHTML = hiddenDiv.innerHTML
@@ -338,6 +360,15 @@ async function loadTimeKnownForm() {
     bigStage.innerHTML = frag;
 }
 
+function loadnaver() {
+    var mapOptions = {
+        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        zoom: 10
+    };
+    var map = new naver.maps.Map('map', mapOptions);
+    console.log("check")
+}
+
 async function loadmappic() {
     const url = "http://localhost:8090/map"
 
@@ -352,7 +383,7 @@ async function loadmappic() {
             }
         })
         if (!responsePromise.ok) {
-            throw new Error("Error! status: ${response.status}");
+            throw new Error("Error! status:, ${response.status}");
         }
         frag = await responsePromise.text();
     } catch (err) {
@@ -361,7 +392,10 @@ async function loadmappic() {
 
     let bigstage = document.getElementById("bigStage")
 
+
     // bigstage.innerHTML = '<img src="/img/hcimap.PNG" alt="testpic">'
     bigstage.innerHTML = frag
+
+    loadnaver()
 }
 
