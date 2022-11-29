@@ -27,7 +27,7 @@
         ></div>
     </div>
     <div class="col-3">
-        <form>
+        <form id="locationForm">
             <label for="eName" class="form-label">Event name:</label>
             <input id="eName" type="text" class="form-control" placeholder="MyFirstEvent"/><br/>
             <label for="eParticipants" class="form-label">Participants:</label>
@@ -66,12 +66,32 @@
 
     <div class="btn-group">
         <p><br/></p>
-        <form th:action="@{/}" method="post">
-            <input type="submit" value="Cancel" class="btn btn-outline-success"/>
+       <form th:action="@{/}" method="post">
+            <input type="submit" value="Cancel" onclick="confirmPageLeave()" class="btn btn-outline-success"/>
         </form>
         <button type="button" onclick="makeMeeting()" class="btn btn-outline-primary">Create!</button>
     </div>
 </div>
 
 </body>
+
+<script>
+
+    /*window.addEventListener('beforeunload', function (e) {
+
+        let eName = document.getElementById("eName").value;
+        let eParticipants = document.getElementById("eParticipants").value;
+        let keywordvalue = document.getElementById("keyword").value;
+        console.log("hallo")
+        // Check if any of the input fields are filled
+        if (eName !== '' || eParticipants !== '' || keywordvalue !== '') {
+
+            // Cancel the event and show alert that
+            // the unsaved changes would be lost
+            console.log("hallo")
+            //e.preventDefault();
+            e.returnValue = "hallo du wixxer";
+        }
+    });*/
+</script>
 </html>

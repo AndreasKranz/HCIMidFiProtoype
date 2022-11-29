@@ -170,8 +170,6 @@ function editExistingMeet() {
 
     let startIndex = input.indexOf("|")
 
-   // input = input.substring((startIndex + 2), input.length)
-
     let parts = input.split("-")
 
     strDate = parts[0]
@@ -183,7 +181,7 @@ function editExistingMeet() {
 
 }
 
-function hideSchedule(){
+function hideSchedule() {
 
     let scheduleRowId = document.getElementById("saveScheduleId").innerText;
 
@@ -211,31 +209,24 @@ function checkInputs() {
     variableInput = variableInput.value;
     console.log("bbb: ", variableInput)
 
-    if (eName == "" || eParticipants == ""|| variableInput == "") {
-        alert("You have to fill every input!")
-        return false;
+    if (eName == "" || eParticipants == "" || variableInput == "") {
+        //alert("You have to fill every input!")
+        return -1;
+    } else if (eName != "" && eParticipants != "" && variableInput != "") {
+        return 0;
     }
-    return true;
+    return 1;
+
+
 }
 
 
 async function makeMeeting() {
 
     let eName = document.getElementById("eName").value;
-    verified = checkInputs()
+    let verified = checkInputs()
 
-    if (verified) {
-
-        /*let obj = {
-            taskTitle: title,
-            tdescription: description,
-            assignedEmail: assignee,
-            tpriority: prio,
-        }
-
-        let createPayload = JSON.stringify(obj);
-    */
-
+    if (verified == 0) {
         let str = "Sucess! You have sent the voting for the meeting '" + eName + "' to the participants!"
 
         const url = "http://localhost:8090/success"
@@ -261,6 +252,8 @@ async function makeMeeting() {
         console.log(str)
 
         document.getElementById("confirmH2").innerHTML = str
+    } else {
+        alert("You have to fill every input!")
     }
 }
 
@@ -366,7 +359,6 @@ function loadnaver() {
         zoom: 10
     };
     var map = new naver.maps.Map('map', mapOptions);
-    console.log("check")
 }
 
 async function loadmappic() {
