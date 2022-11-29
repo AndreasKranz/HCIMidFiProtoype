@@ -4,7 +4,11 @@ let selectedOption = 0
 
 function search() {
     var location = document.getElementById("selectedLocation");
+    let locationInput = document.getElementById("keyword");
+    locationInput.value = "Ewha Womans University"
     location.innerHTML = "Ewha Womans University";
+
+    document.getElementById("locationHelp").hidden = true;
 }
 
 async function openVoting() {
@@ -71,9 +75,9 @@ function getRangeResults() {
     rating3 = opt3.value
 
 
-   /* if (rating1 == undefined || rating2 == undefined || rating3 == undefined) {
-        alert("You have to vote for every available date and time!")
-    }*/
+    /* if (rating1 == undefined || rating2 == undefined || rating3 == undefined) {
+         alert("You have to vote for every available date and time!")
+     }*/
 
     let Rs = [rating1, rating2, rating3]
     console.log(Rs)
@@ -179,53 +183,64 @@ function editExistingMeet() {
 
 }
 
+function checkInputs() {
+    let eName = document.getElementById("eName").value;
+    let eParticipants = document.getElementById("eParticipants").value;
+    let variableInput = document.getElementsByName("necessaryInput").item(0);
+    variableInput = variableInput.value;
+    console.log("bbb: ", variableInput)
+
+    if (eName == "" || eParticipants == ""|| variableInput == "") {
+        alert("You have to fill every input!")
+        return false;
+    }
+    return true;
+}
+
+
 async function makeMeeting() {
 
     let eName = document.getElementById("eName").value;
+    verified = checkInputs()
 
+    if (verified) {
 
-    /*let obj = {
-        taskTitle: title,
-        tdescription: description,
-        assignedEmail: assignee,
-        tpriority: prio,
-    }
-
-    let createPayload = JSON.stringify(obj);
-*/
-
-
-
-    let str = "Sucess! You have sent the voting for the meeting '" + eName + "' to the participants!"
-
-
-    const url = "http://localhost:8090/success"
-
-    let frag;
-
-    try {
-        const responsePromise = await fetch(url, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'html'
-            }
-        })
-        if (!responsePromise.ok) {
-            throw new Error("Error! status: ${response.status}");
+        /*let obj = {
+            taskTitle: title,
+            tdescription: description,
+            assignedEmail: assignee,
+            tpriority: prio,
         }
-        frag = await responsePromise.text();
-    } catch (err) {
-        console.log(err);
+
+        let createPayload = JSON.stringify(obj);
+    */
+
+        let str = "Sucess! You have sent the voting for the meeting '" + eName + "' to the participants!"
+
+        const url = "http://localhost:8090/success"
+        let frag;
+        try {
+            const responsePromise = await fetch(url, {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'html'
+                }
+            })
+            if (!responsePromise.ok) {
+                throw new Error("Error! status: ${response.status}");
+            }
+            frag = await responsePromise.text();
+        } catch (err) {
+            console.log(err);
+        }
+
+        document.getElementById("bigStage").innerHTML = frag;
+
+        console.log(str)
+
+        document.getElementById("confirmH2").innerHTML = str
     }
-
-    let hiddenDiv = document.getElementById("bigStage").innerHTML = frag;
-
-    console.log(str)
-
-    document.getElementById("confirmH2").innerHTML = str
-
-    //document.getElementById("bigStage").innerHTML = hiddenDiv.innerHTML;
 }
 
 async function openEvent(scheduleId) {
