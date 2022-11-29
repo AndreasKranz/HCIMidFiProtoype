@@ -56,19 +56,19 @@ public class ChronosController {
     @RequestMapping(value = "/timeform")
     public String retrieveFindByTime() {
 
-        ArrayList<Meeting> meets = new ArrayList<>();
+        /*ArrayList<Meeting> meets = new ArrayList<>();
         meets.add(new Meeting("testname", "leute,haha", LocalDateTime.now(), LocalDateTime.now(), "important adress", "long text", MeetingStatus.IN_VOTING));
 
 
-        service.saveMeeting(meets);
+        service.saveMeeting(meets);*/
         return "findByTime";
     }
 
     @RequestMapping(value = "/locform")
     public String retrieveFindByLocation() {
-        ArrayList<Meeting> meets1 = service.loadMeetings();
+        /*ArrayList<Meeting> meets1 = service.loadMeetings();
 
-        System.out.println(meets1.toString());
+        System.out.println(meets1.toString());*/
 
         return "findByLocation";
     }
