@@ -4,10 +4,18 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Chronos</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <script src="https://kit.fontawesome.com/76455550da.js" crossorigin="anonymous"></script>
+    <style>
+        #leftBar { width:33%; }
+        #rightBar { width: 65%; }
+        #tableSchedule { width:100%; }
+        .nav-items { margin-left:70%; }
+    </style>
     <script src="/js/bootstrap.bundle.js"></script>
-    <script src="/js/mainscript.js"></script>
+    <script src="/js/scripterino.js"></script>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4y0yajhyoq"></script>
+
 </head>
 <body onload="loadmappic()">
 <!--<h1 class="text-center" onclick="loadmappic()">Chronos</h1>
@@ -18,7 +26,7 @@
         <a class="navbar-brand" href="#" onclick="loadmappic()">
             <b>Welcome to Chronos</b>
         </a>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse nav-items">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a
@@ -38,15 +46,11 @@
                     </ul>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Invitations</a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="#" onclick="openVoting()">Invitation from Hoy</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Example</a>
-                        </li>
+                <li class="nav-item dropdown" style="float: right;">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-lg fa-light fa-envelope"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" onclick="openVoting()">Invitation from Hoy</a></li>
+                        <li><a class="dropdown-item" href="#">Example</a></li>
                     </ul>
                 </li>
             </ul>
@@ -146,7 +150,7 @@
                     <td id="TimeCell0">6:00pm</td>
                     <td>Trick, Trick, Track</td>
                     <td>
-                        <button id="btnDetails1" name="btnDetailsEdit" onclick="openEvent('scheduleRow1')"
+                        <button id="btnDetails1" name="btnDetailsEdit" onclick="location.href = '/details';"
                                 class="btn btn-outline-info">Details
                         </button>
                     </td>
@@ -158,7 +162,7 @@
                     <td id="TimeCell1">4.30pm</td>
                     <td>Jon</td>
                     <td>
-                        <button id="btnDetails2" name="btnDetailsEdit" onclick="openEvent('scheduleRow2')"
+                        <button id="btnDetails2" name="btnDetailsEdit" onclick="location.href = '/details';"
                                 class="btn btn-outline-info">Details
                         </button>
                     </td>
@@ -170,7 +174,7 @@
                     <td id="TimeCell2">YY</td>
                     <td>Hoy, Dilan</td>
                     <td>
-                        <button id="btnDetails3" name="btnDetailsEdit" onclick="openEvent('scheduleRowHidden')"
+                        <button id="btnDetails3" name="btnDetailsEdit" onclick="location.href = '/details';"
                                 class="btn btn-outline-info">Details
                         </button>
                     </td>
