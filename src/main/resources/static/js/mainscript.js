@@ -358,8 +358,8 @@ async function loadTimeKnownForm() {
 
 function loadnaver() {
     var mapOptions = {
-        center: new naver.maps.LatLng(37.3595704, 127.105399),
-        zoom: 10
+        center: new naver.maps.LatLng(37.56263388517175, 126.94760702226985),
+        zoom: 16
     };
     var map = new naver.maps.Map('map', mapOptions);
     console.log("naver map loaded!")
