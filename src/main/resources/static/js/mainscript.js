@@ -36,6 +36,9 @@ async function openVoting() {
 
     bigStage.innerHTML = frag
 
+    let btnSend = document.getElementById("btnSendVote")
+    btnSend.addEventListener('click', ()=> addScheduleRow());
+
 }
 
 async function openEvent(scheduleId) {
@@ -77,18 +80,17 @@ async function openEvent(scheduleId) {
     hiddenDiv.innerHTML = "";
 
     let btnSend = document.getElementById("btnSendVote")
-    let btnEdit = document.getElementById("btnEditMeet")
+    btnSend.addEventListener('click', ()=> editExistingMeet());
+
+    //let btnEdit = document.getElementById("btnEditMeet")
     let btnAbsence =  document.getElementById("markAbsence")
     let btnDetails = document.getElementById("btnDetails")
 
-    if (!btnSend.hidden){
-        document.getElementById("btnSendVote").hidden = true
-    }
 
-    if (btnEdit.hidden){
+   /* if (btnEdit.hidden){
         console.log("edit btn hidden:",btnEdit.hidden)
         document.getElementById("btnEditMeet").hidden = false
-    }
+    }*/
 
     if (btnAbsence.hidden){
         console.log("show absence!")
@@ -126,7 +128,7 @@ function getRangeResults() {
 
     let fav = -1;
 
-    for (let i = 5; i > 0; i--) {
+    for (let i = 4; i > 0; i--) {
         for (let j = 0; j < Rs.length; j++) {
             if (Rs[j] == i) {
                 fav = j;
