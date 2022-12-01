@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Zen+Dots&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/76455550da.js" crossorigin="anonymous"></script>
     <style>
         #leftBar { width:33%; }
@@ -51,7 +51,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-item dropdown" style="float: right;">
+                <li class="nav-item dropdown" style="float: right; font-family: 'Roboto', sans-serif;">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-lg fa-light fa-envelope"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#" onclick="openVoting()">Invitation from Hoy</a></li>
@@ -64,7 +64,7 @@
 </nav>
 
 
-<div id="mainDiv" class="row">
+<div id="mainDiv" class="row" style="font-family: 'Roboto', sans-serif;">
     <div id="leftBar" class="col-3">
         <div id="calendarDiv" class="border border-dark">
             <h4 class="text-center">Calendar</h4>
@@ -132,7 +132,7 @@
 
         <div id="scheduleDiv" class="border border-dark">
 
-            <h3 class="text-center">Schedule</h3>
+            <h4 class="text-center">Schedule</h4>
             <div style="display: flex; justify-content: right; align-items: center; padding-right: 10px;">
                 <button class="btn btn-outline-info btn-sm" onclick="loadPastSchedules()">Finished Schedules</button>
                 <!--<a href="/finished">Show Finished schedules</a>-->
