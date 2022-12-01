@@ -50,4 +50,9 @@ public class ChronosController {
         return "keywordSearchResult";
     }
 
+    @GetMapping(value= "/details")
+    public String details() {
+        return "details";
+    }
+
 }
