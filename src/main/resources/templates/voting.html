@@ -4,6 +4,30 @@
     <meta charset="UTF-8" />
     <title>Title</title>
     <style>
+        .voteTable {
+            width: auto;
+            text-align: center;
+            padding: 30px;
+            font-size: 1rem;
+        }
+
+        .voteTr {
+            width: 700px;
+            height: 100px;
+            border-bottom: 1px;
+        }
+
+        .voteTh {
+            width: 300px;
+            height: 100px;
+            padding: 30px;
+        }
+
+        .voteTd {
+            width: 400px;
+            height: 100px;
+        }
+
         datalist {
             display: flex;
             flex-direction: column;
@@ -23,6 +47,10 @@
           margin: 0;
         }
 
+        td button {
+            float: right;
+            margin: 0 1rem 0 1rem;
+        }
 
 
     </style>
@@ -100,6 +128,10 @@
             <button id="btnEditMeet" class="btn btn-primary btn-lg" onclick="editExistingMeet()" hidden>Vote!</button>
             <button id="btnLateVote" class="btn btn-light btn-lg" onclick="">Vote Later!</button>
             <button id="btnSendVote" class="btn btn-dark btn-lg" onclick="addScheduleRow()">Vote!</button>
+
+        </td>
+        <td>
+            <button id="markAbsence" class="btn btn-danger btn-lg" onclick="hideSchedule()" hidden>Absence!</button>
         </td>
     </tr>
 </table>
