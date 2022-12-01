@@ -14,7 +14,7 @@ function search() {
 async function openVoting() {
     const url = 'http://localhost:8090/vote';
 
-    let frag;
+    let frag  = null;
 
     try {
         const responsePromise = await fetch(url, {
@@ -36,30 +36,64 @@ async function openVoting() {
 
     bigStage.innerHTML = frag
 
-    UnCrossDates()
 }
 
-function crossDate(thId) {
-    let thcontent = document.getElementById(thId).innerText;
+async function openEvent(scheduleId) {
+    const url = "http://localhost:8090/vote"
+    let frag;
 
-    console.log("thcontent" + thcontent)
+    try {
+        const responsePromise = await fetch(url, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'html'
+            }
+        })
+        if (!responsePromise.ok) {
+            throw new Error("Error! status: ${response.status}");
+        }
+        frag = await responsePromise.text();
+    } catch (err) {
+        console.log(err);
+    }
 
-    document.getElementById(thId).innerHTML = "<del>" + thcontent + "</del>";
+    let hiddenDiv = document.getElementById("hiddenDiv")
+
+    document.getElementById("bigStage").innerHTML = "";
+
+    hiddenDiv.innerHTML = frag
+
+    let row = document.getElementById(scheduleId)
+
+    let cells = row.children
+    //console.log(cells)
+
+    document.getElementById("date2").innerHTML = cells[2].innerHTML + " - " + cells[3].innerHTML;
+
+
+    let btnSend = document.getElementById("btnSendVote").hidden = true
+    let btnEdit = document.getElementById("btnEditMeet").hidden = false
+    let btnAbsence =  document.getElementById("markAbsence").hidden = false
+
+    if (!btnSend.hidden){
+        btnSend.hidden = true
+    }
+
+    if (btnEdit.hidden){
+        btnEdit.hidden = false
+    }
+
+    if (btnAbsence.hidden){
+        btnAbsence.hidden = false;
+    }
+
+    document.getElementById("saveScheduleId").innerText = scheduleId;
+    document.getElementById("bigStage").innerHTML = hiddenDiv.innerHTML
+
+    hiddenDiv.innerHTML = "";
 }
 
-function uncrossDate(lblid) {
-    let thcontent = document.getElementById(lblid).innerText;
-
-    document.getElementById(lblid).innerHTML = thcontent;
-
-}
-
-function UnCrossDates() {
-
-    document.getElementById("btnDel1").addEventListener('click', () => crossDate("date1"))
-    document.getElementById("btnDel2").addEventListener('click', () => crossDate("date2"))
-    document.getElementById("btnDel3").addEventListener('click', () => crossDate("date3"))
-}
 
 function getRangeResults() {
 
@@ -168,8 +202,6 @@ function editExistingMeet() {
 
     let strDate, strTime;
 
-    let startIndex = input.indexOf("|")
-
     let parts = input.split("-")
 
     strDate = parts[0]
@@ -257,45 +289,6 @@ async function makeMeeting() {
     }
 }
 
-async function openEvent(scheduleId) {
-    const url = "http://localhost:8090/vote"
-    let frag;
-
-    try {
-        const responsePromise = await fetch(url, {
-            method: 'GET',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'html'
-            }
-        })
-        if (!responsePromise.ok) {
-            throw new Error("Error! status: ${response.status}");
-        }
-        frag = await responsePromise.text();
-    } catch (err) {
-        console.log(err);
-    }
-
-    let hiddenDiv = document.getElementById("hiddenDiv")
-
-    hiddenDiv.innerHTML = frag
-
-    let row = document.getElementById(scheduleId)
-
-    let cells = row.children
-
-    document.getElementById("date2").innerHTML = cells[2].innerHTML + " - " + cells[3].innerHTML;
-
-    document.getElementById("btnSendVote").hidden = true
-    document.getElementById("btnEditMeet").hidden = false
-    document.getElementById("markAbsence").hidden = false
-
-    document.getElementById("saveScheduleId").innerText = scheduleId;
-    document.getElementById("bigStage").innerHTML = hiddenDiv.innerHTML
-
-    UnCrossDates()
-}
 
 async function loadLocKnownForm() {
     const url = 'http://localhost:8090/locform';
