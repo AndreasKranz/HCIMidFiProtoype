@@ -15,7 +15,6 @@
         #tableSchedule { width:100%; }
         #calendarDiv {padding: 1rem 0 1rem 1rem;}
         #scheduleDiv {padding: 0 0 1rem 1rem;}
-        .nav-items { margin-left:75%; }
         .navbar-brand{ font-size:1.5rem;}
     </style>
     <script src="/js/bootstrap.bundle.js"></script>
@@ -30,13 +29,13 @@
 
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #022873;">
     <div class="container-fluid">
-        <h3 class="navbar-brand" href="#" onclick="loadmappic()" style="font-family: Zen Dots; color:white; margin: 4px 0 4px 0">
+        <h3 class="navbar-brand" href="#" onclick="loadmappic()" style="font-family: Zen Dots; color:white; margin: 4px 0 4px 0;">
             <b>Chronos</b>
         </h3>
-        <div class="collapse navbar-collapse nav-items">
+        <div class="collapse navbar-collapse" style="justify-content: flex-end;">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" style="color:white;"><b>Create Meeting</b></a>
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" style="color:white; font-size: 1.2rem;"><b>Create Meeting</b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a class="dropdown-item" href="#" onclick="loadLocKnownForm()">Search Time</a>
@@ -47,8 +46,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-item dropdown" style="float: right;">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;"><i class="fas fa-lg fa-thin fa-envelope"></i></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 1.2rem; color:white;"><i class="fas fa-lg fa-thin fa-envelope"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#" onclick="openVoting()">Invitation from Hoy</a></li>
                         <li><a class="dropdown-item" href="#">Invitation from Kim</a></li>
