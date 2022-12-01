@@ -8,9 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-
 @Controller
 public class ChronosController {
 
@@ -19,7 +16,7 @@ public class ChronosController {
 
     //ArrayList<Meeting> tempMeetings = new ArrayList<>();
 
-    @PostMapping(value = "/createMeet", consumes = MediaType.APPLICATION_JSON_VALUE)
+    /*@PostMapping(value = "/createMeet", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createMeeting(@RequestBody MeetingDTO dto) {
         //tempMeetings.add(new Meeting(dto.getMeetingname(), dto.getParticipants(), dto.getMeetingTime(), LocalDateTime.now(), dto.getLocation(), dto.getDescription(), dto.getMeetingStatus()));
 
@@ -34,7 +31,7 @@ public class ChronosController {
         //this.tempMeetings = service.editMeeting(tempMeetings, dto);
 
         return ResponseEntity.status(HttpStatus.OK).body("Sucessfully edited Meeting");
-    }
+    }*/
 
     @RequestMapping(value = "")
     public String viewIndex() {
@@ -93,14 +90,14 @@ public class ChronosController {
         return "keywordSearchResult";
     }
 
-    @GetMapping(value= "/details")
+    @RequestMapping(value= "/details")
     public String details() {
         return "details";
     }
 
-    @GetMapping("/finished")
+    @RequestMapping("/finished")
     public String getFinishedSchedules() {
-        return "finishedSchedules";
+        return "pastSchedules";
     }
 
 }

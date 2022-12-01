@@ -13,7 +13,7 @@
         .nav-items { margin-left:70%; }
     </style>
     <script src="/js/bootstrap.bundle.js"></script>
-    <script src="/js/scripterino.js"></script>
+    <script src="/js/mainscript.js"></script>
     <script src="/js/mainscript.js"></script>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4y0yajhyoq"></script>
 
@@ -130,7 +130,8 @@
 
             <h3 class="text-center">Schedule</h3>
             <div style="display: flex; justify-content: right; align-items: center; padding-right: 10px;">
-                <a href="/finished">Show Finished schedules</a>
+                <button class="btn btn-outline-info btn-sm" onclick="loadPastSchedules()">Finished Schedules</button>
+                <!--<a href="/finished">Show Finished schedules</a>-->
             </div>
             <table class="table table-hover" id="tableSchedule">
                 <thead class="table table-secondary">
@@ -151,8 +152,8 @@
                     <td id="TimeCell0">6:00pm</td>
                     <td>Trick, Trick, Track</td>
                     <td>
-                        <button id="btnDetails1" name="btnDetailsEdit" onclick="location.href = '/details';"
-                                class="btn btn-outline-info">Details
+                        <button id="btnDetails1" name="btnDetailsEdit" onclick="openEvent('scheduleRow1')"
+                                class="btn btn-outline-info">View
                         </button>
                     </td>
                 </tr>
@@ -163,8 +164,8 @@
                     <td id="TimeCell1">4.30pm</td>
                     <td>Jon</td>
                     <td>
-                        <button id="btnDetails2" name="btnDetailsEdit" onclick="location.href = '/details';"
-                                class="btn btn-outline-info">Details
+                        <button id="btnDetails2" name="btnDetailsEdit" onclick="openEvent('scheduleRow2')"
+                                class="btn btn-outline-info">View
                         </button>
                     </td>
                 </tr>
@@ -175,8 +176,8 @@
                     <td id="TimeCell2">YY</td>
                     <td>Hoy, Dilan</td>
                     <td>
-                        <button id="btnDetails3" name="btnDetailsEdit" onclick="location.href = '/details';"
-                                class="btn btn-outline-info">Details
+                        <button id="btnDetails3" name="btnDetailsEdit" onclick="openEvent('scheduleRowHidden')"
+                                class="btn btn-outline-info">View
                         </button>
                     </td>
                 </tr>
@@ -222,7 +223,7 @@
             <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca" href="#!" role="button"><i
                     class="fab fa-linkedin-in"></i></a>
             <!-- Github -->
-            <a class="btn btn-primary btn-floating m-1" style="background-color: #333333" href="#!" role="button"><i
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #333333" href="https://github.com/AndreasKranz/HCIProtoypeChronos" role="button"><i
                     class="fab fa-github"></i></a>
 
 

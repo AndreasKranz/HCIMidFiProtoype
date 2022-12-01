@@ -18,7 +18,7 @@ async function openVoting() {
 
     try {
         const responsePromise = await fetch(url, {
-            method: 'GET',
+            method: 'POST',
             credentials: 'include',
             headers: {
                 'Content-Type': 'html'
@@ -44,7 +44,7 @@ async function openEvent(scheduleId) {
 
     try {
         const responsePromise = await fetch(url, {
-            method: 'GET',
+            method: 'POST',
             credentials: 'include',
             headers: {
                 'Content-Type': 'html'
@@ -59,37 +59,45 @@ async function openEvent(scheduleId) {
     }
 
     let hiddenDiv = document.getElementById("hiddenDiv")
-
     document.getElementById("bigStage").innerHTML = "";
-
     hiddenDiv.innerHTML = frag
 
     let row = document.getElementById(scheduleId)
-
     let cells = row.children
-    //console.log(cells)
 
+    let strName = cells[1].innerHTML;
+    let strParticipants = cells[4].innerHTML;
+    let strTitle = "Vote on your favorite Date and Time for '" + strName+ "' with " + strParticipants+ "!";
+
+    document.getElementById("votingTitle").innerHTML = strTitle;
     document.getElementById("date2").innerHTML = cells[2].innerHTML + " - " + cells[3].innerHTML;
-
-
-    let btnSend = document.getElementById("btnSendVote").hidden = true
-    let btnEdit = document.getElementById("btnEditMeet").hidden = false
-    let btnAbsence =  document.getElementById("markAbsence").hidden = false
-
-    if (!btnSend.hidden){
-        btnSend.hidden = true
-    }
-
-    if (btnEdit.hidden){
-        btnEdit.hidden = false
-    }
-
-    if (btnAbsence.hidden){
-        btnAbsence.hidden = false;
-    }
 
     document.getElementById("saveScheduleId").innerText = scheduleId;
     document.getElementById("bigStage").innerHTML = hiddenDiv.innerHTML
+    hiddenDiv.innerHTML = "";
+
+    let btnSend = document.getElementById("btnSendVote")
+    let btnEdit = document.getElementById("btnEditMeet")
+    let btnAbsence =  document.getElementById("markAbsence")
+    let btnDetails = document.getElementById("btnDetails")
+
+    if (!btnSend.hidden){
+        document.getElementById("btnSendVote").hidden = true
+    }
+
+    if (btnEdit.hidden){
+        console.log("edit btn hidden:",btnEdit.hidden)
+        document.getElementById("btnEditMeet").hidden = false
+    }
+
+    if (btnAbsence.hidden){
+        console.log("show absence!")
+        document.getElementById("markAbsence").hidden = false;
+    }
+    if (btnDetails.hidden){
+        document.getElementById("btnDetails").hidden = false
+    }
+
 
     hiddenDiv.innerHTML = "";
 }
@@ -352,6 +360,7 @@ function loadnaver() {
         zoom: 10
     };
     var map = new naver.maps.Map('map', mapOptions);
+    console.log("naver map loaded!")
 }
 
 async function loadmappic() {
@@ -381,6 +390,87 @@ async function loadmappic() {
     // bigstage.innerHTML = '<img src="/img/hcimap.PNG" alt="testpic">'
     bigstage.innerHTML = frag
 
+    console.log("map html loaded, start naver loading")
     loadnaver()
+}
+
+async function loadDetails(scheduleId){
+
+    const url = "http://localhost:8090/details"
+
+    let frag;
+
+    try {
+        const responsePromise = await fetch(url, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'html'
+            }
+        })
+        if (!responsePromise.ok) {
+            throw new Error("Error! status:, ${response.status}");
+        }
+        frag = await responsePromise.text();
+    } catch (err) {
+        console.log(err);
+    }
+
+    let hiddenDiv = document.getElementById("hiddenDiv");
+
+    hiddenDiv.innerHTML = frag;
+
+    let row = document.getElementById(scheduleId)
+
+    let cells = row.children
+
+    document.getElementById("detailTitle").innerHTML = cells[1].innerHTML
+    document.getElementById("detailDate").innerHTML = cells[2].innerHTML
+    document.getElementById("detailTime").innerHTML = cells[3].innerHTML
+    document.getElementById("detailParticipants").innerHTML = cells[4].innerHTML
+    let strLocation = "";
+    switch (scheduleId){
+        case "scheduleRow1":
+            strLocation = "Soccerfield near Ehwa Main Gate";
+            break;
+        case "scheduleRo2":
+            strLocation = "Enigeering Building B Floor 2";
+            break;
+        default:
+            strLocation = "Han River playground";
+    }
+    document.getElementById("detailLocation").innerHTML = strLocation;
+
+
+    let bigstage = document.getElementById("bigStage")
+    bigstage.innerHTML = hiddenDiv.innerHTML;
+
+    hiddenDiv.innerHTML = "";
+}
+
+async function loadPastSchedules() {
+    const url = "http://localhost:8090/finished"
+
+    let frag;
+
+    try {
+        const responsePromise = await fetch(url, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'html'
+            }
+        })
+        if (!responsePromise.ok) {
+            throw new Error("Error! status:, ${response.status}");
+        }
+        frag = await responsePromise.text();
+    } catch (err) {
+        console.log(err);
+    }
+
+    let bigstage = document.getElementById("bigStage")
+    bigstage.innerHTML = frag
+
 }
 

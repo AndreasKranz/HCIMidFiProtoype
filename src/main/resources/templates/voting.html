@@ -4,29 +4,6 @@
     <meta charset="UTF-8" />
     <title>Title</title>
     <style>
-        .voteTable {
-            width: auto;
-            text-align: center;
-            padding: 30px;
-            font-size: 1rem;
-        }
-
-        .voteTr {
-            width: 700px;
-            height: 100px;
-            border-bottom: 1px;
-        }
-
-        .voteTh {
-            width: 300px;
-            height: 100px;
-            padding: 30px;
-        }
-
-        .voteTd {
-            width: 400px;
-            height: 100px;
-        }
 
         datalist {
             display: flex;
@@ -56,7 +33,7 @@
     </style>
 </head>
 <body>
-<h2 class="text-center">
+<h2 class="text-center" id="votingTitle">
     Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!
 </h2>
 <div class="progress">
@@ -123,7 +100,9 @@
         </td>
     </tr>
     <tr>
-        <th></th>
+        <th>
+            <button id="btnDetails" class="btn btn-outline-success" onclick="loadDetails(document.getElementById('saveScheduleId').innerHTML)" hidden>Details</button>
+        </th>
         <td>
             <button id="btnEditMeet" class="btn btn-primary btn-lg" onclick="editExistingMeet()" hidden>Vote!</button>
             <button id="btnLateVote" class="btn btn-light btn-lg" onclick="">Vote Later!</button>
