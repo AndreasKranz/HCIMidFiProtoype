@@ -17,13 +17,13 @@ public class ChronosController {
     @Autowired
     ChronosService service;
 
-    ArrayList<Meeting> tempMeetings = new ArrayList<>();
+    //ArrayList<Meeting> tempMeetings = new ArrayList<>();
 
     @PostMapping(value = "/createMeet", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createMeeting(@RequestBody MeetingDTO dto) {
-        tempMeetings.add(new Meeting(dto.getMeetingname(), dto.getParticipants(), dto.getMeetingTime(), LocalDateTime.now(), dto.getLocation(), dto.getDescription(), dto.getMeetingStatus()));
+        //tempMeetings.add(new Meeting(dto.getMeetingname(), dto.getParticipants(), dto.getMeetingTime(), LocalDateTime.now(), dto.getLocation(), dto.getDescription(), dto.getMeetingStatus()));
 
-        service.saveMeeting(tempMeetings);
+        //service.saveMeeting(tempMeetings);
 
         return ResponseEntity.status(HttpStatus.OK).body("Sucessfully saved new meeting!");
     }
@@ -31,24 +31,24 @@ public class ChronosController {
     @PostMapping(value = "/editMeet", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> editMeeting(@RequestBody MeetingDTO dto) {
 
-        this.tempMeetings = service.editMeeting(tempMeetings, dto);
+        //this.tempMeetings = service.editMeeting(tempMeetings, dto);
 
         return ResponseEntity.status(HttpStatus.OK).body("Sucessfully edited Meeting");
     }
 
     @RequestMapping(value = "")
     public String viewIndex() {
-        if (tempMeetings.size() == 0) {
-            tempMeetings = service.loadMeetings();
-        }
+        //if (tempMeetings.size() == 0) {
+       //     tempMeetings = service.loadMeetings();
+        //}
         return "index";
     }
 
     @RequestMapping(value = "/index")
     public String viewIndex1() {
-        if (tempMeetings.size() == 0) {
-            tempMeetings = service.loadMeetings();
-        }
+        //if (tempMeetings.size() == 0) {
+        //    tempMeetings = service.loadMeetings();
+        //}
 
         return "index";
     }

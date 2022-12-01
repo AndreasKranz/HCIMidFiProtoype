@@ -26,7 +26,7 @@ public class ChronosService {
     public ArrayList<Meeting> loadMeetings(){
         ArrayList<Meeting> output = new ArrayList<>();
 
-        try {
+        /*try {
             BufferedReader reader = new BufferedReader(new FileReader(System.getenv("USERPROFILE")+"\\Downloads\\outputtest.csv"));
             String[] splitted;
             String line = "";
@@ -61,14 +61,14 @@ public class ChronosService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+*/
         return output;
     }
 
     public void saveMeeting(ArrayList<Meeting> input){
         File outputCsv = new File(System.getenv("USERPROFILE") + "\\Downloads\\outputtest.csv");
 
-        try{
+        /*try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputCsv));
 
             writer.write("id,meetingName,participants,meetDateTime,creationTime,location,description,meetingStatus");
@@ -83,7 +83,7 @@ public class ChronosService {
             throw new RuntimeException(e);
         }
 
-
+*/
     }
 
 
