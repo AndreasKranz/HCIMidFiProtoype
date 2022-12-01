@@ -29,6 +29,10 @@
             margin: 0 1rem 0 1rem;
         }
 
+        #votingTable, #voteBtns { margin-left: 10%; }
+        #voteBtns { margin-top: 5%; }
+        #voteBtns_right { margin-left: 30%; }
+
 
     </style>
 </head>
@@ -46,7 +50,7 @@
             aria-valuemax="100"
     ></div>
 </div>
-<table>
+<table id="votingTable">
     <tr>
         <th>Time</th>
         <th>Preference</th>
@@ -99,21 +103,20 @@
             <input hidden type="button" value="delete" class="btn btn-secondary" id="btnDel3">
         </td>
     </tr>
-    <tr>
-        <th>
+</table>
+
+    <div id="voteBtns">
+        <div id="voteBtns_left">
             <button id="btnDetails" class="btn btn-outline-success" onclick="loadDetails(document.getElementById('saveScheduleId').innerHTML)" hidden>Details</button>
-        </th>
-        <td>
+        </div>
+        <div id="voteBtns_right">
             <button id="btnEditMeet" class="btn btn-primary btn-lg" onclick="editExistingMeet()" hidden>Vote!</button>
             <button id="btnLateVote" class="btn btn-light btn-lg" onclick="">Vote Later!</button>
             <button id="btnSendVote" class="btn btn-dark btn-lg" onclick="addScheduleRow()">Vote!</button>
-
-        </td>
-        <td>
             <button id="markAbsence" class="btn btn-danger btn-lg" onclick="hideSchedule()" hidden>Absence!</button>
-        </td>
-    </tr>
-</table>
+        </div>
+
+    </div>
 
 <div id="saveScheduleId" hidden></div>
 
