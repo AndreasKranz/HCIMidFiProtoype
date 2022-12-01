@@ -24,12 +24,18 @@
           margin: 0;
         }
 
+        th, td {
+            padding: 1rem;
+            font-weight: 600;
+            width: max-content;
+        }
+
         td button {
             float: right;
             margin: 0 1rem 0 1rem;
         }
 
-        #votingTable, #voteBtns { margin-left: 10%; }
+        #votingTable, #voteBtns { text-align: center; margin-left: 10%; }
         #voteBtns { margin-top: 5%; }
         #voteBtns_right { margin-left: 30%; }
 
@@ -37,9 +43,10 @@
     </style>
 </head>
 <body>
-<h3 class="text-center" id="votingTitle" style="font-family: 'Roboto', sans-serif;">
+<h4 class="text-center" id="votingTitle" style="font-family: 'Roboto', sans-serif;">
     Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!
-</h3>
+</h4>
+<br>
 <table id="votingTable" style="font-family: 'Roboto', sans-serif; font-size: 1.1rem;">
     <tr>
         <th>Time</th>
