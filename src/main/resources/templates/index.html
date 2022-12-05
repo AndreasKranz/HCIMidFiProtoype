@@ -283,6 +283,11 @@
                     thisMonth = new Date(currentYear, currentMonth + 1, 1);
                     renderCalender(thisMonth);
                 });
+
+                // 날짜 클릭시 미팅 만들 수 있게
+                $('.day.current').on('click', function() {
+                    alert('날짜를 클릭했음');
+                });
             }
             </script>
             <hr>
