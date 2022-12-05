@@ -70,9 +70,7 @@ async function openEvent(scheduleId) {
 
     let strName = cells[1].innerHTML;
     let strParticipants = cells[4].innerHTML;
-    let strTitle = "Vote on your favorite Date and Time for '" + strName+ "' with " + strParticipants+ "!";
-
-    document.getElementById("votingTitle").innerHTML = strTitle;
+    document.getElementById("votingTitle").innerHTML = "Vote on your favorite Date and Time for '" + strName + "' with " + strParticipants + "!";
     document.getElementById("date2").innerHTML = cells[2].innerHTML + " - " + cells[3].innerHTML;
 
     document.getElementById("saveScheduleId").innerText = scheduleId;
@@ -357,15 +355,89 @@ async function loadTimeKnownForm() {
 }
 
 function loadnaver() {
-    var mapOptions = {
+    let mapOptions = {
         center: new naver.maps.LatLng(37.56263388517175, 126.94760702226985),
         zoom: 16
     };
-    var map = new naver.maps.Map('map', mapOptions);
+    let map = new naver.maps.Map('map', mapOptions);
     console.log("naver map loaded!")
+
+    let markerECC = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.56121, 126.94650),
+        map: map
+    });
+
+    let markerSoccer = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.55989, 126.94454),
+        map: map
+    });
+
+
+    let contentStringECC = "<div> <h4 style='margin-left: 10px; margin-right: 10px; margin-top: 5px'> 2 | Studying</h4>" +
+        "<button type=\"button\" onclick=\"openEvent('scheduleRow2')\" class=\"btn btn-outline-success align-content-center\" style='margin: 10px 10px 10px 40px'> View</button> </div>"
+
+    let contentStringSoccer = "<div> <h4 style='margin-left: 10px; margin-right: 10px; margin-top: 5px'> 1 | Soccer</h4>" +
+        "<button type=\"button\" onclick=\"openEvent('scheduleRow1')\" class=\"btn btn-outline-success align-content-center\" style='margin: 10px 10px 10px 32px'> View</button> </div>"
+
+
+    let infowindowECC = new naver.maps.InfoWindow({
+        content: contentStringECC
+    });
+
+    let infowindowSoccer = new naver.maps.InfoWindow({
+        content: contentStringSoccer
+    });
+
+    naver.maps.Event.addListener(markerECC, "click", function() {
+        if (infowindowECC.getMap()) {
+            infowindowECC.close();
+        } else {
+            infowindowECC.open(map, markerECC);
+        }
+    });
+
+    naver.maps.Event.addListener(markerSoccer, "click", function() {
+        if (infowindowSoccer.getMap()) {
+            infowindowSoccer.close();
+        } else {
+            infowindowSoccer.open(map, markerSoccer);
+        }
+    });
+
+    naver.maps.Event.addListener(map, 'click', function() {
+        loadTimeKnownForm()
+    });
+
+    return map;
 }
 
+function showHiddenMarker(input) {
+
+    let markerTheater = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.55990, 126.94222),
+        map: input
+    });
+
+    let contentString = "<div> <h4 style='margin-left: 10px; margin-right: 10px; margin-top: 5px'> 3 | Theater</h4>" +
+        "<button type=\"button\" onclick=\"openEvent('scheduleRowHidden')\" class=\"btn btn-outline-success align-content-center\" style='margin: 10px 10px 10px 32px'> View</button> </div>"
+
+    let infowindowTheater = new naver.maps.InfoWindow({
+        content: contentString
+    });
+
+    naver.maps.Event.addListener(markerTheater, "click", function() {
+        if (infowindowTheater.getMap()) {
+            infowindowTheater.close();
+        } else {
+            infowindowTheater.open(input, markerTheater);
+        }
+    });
+}
+
+
 async function loadmappic() {
+
+
     const url = "http://localhost:8090/map"
 
     let frag;
@@ -393,7 +465,11 @@ async function loadmappic() {
     bigstage.innerHTML = frag
 
     console.log("map html loaded, start naver loading")
-    loadnaver()
+    let tempMap = loadnaver()
+
+    if (!document.getElementById("scheduleRowHidden").hidden){
+        showHiddenMarker(tempMap)
+    }
 }
 
 async function loadDetails(scheduleId){
@@ -430,7 +506,7 @@ async function loadDetails(scheduleId){
     document.getElementById("detailDate").innerHTML = cells[2].innerHTML
     document.getElementById("detailTime").innerHTML = cells[3].innerHTML
     document.getElementById("detailParticipants").innerHTML = cells[4].innerHTML
-    let strLocation = "";
+    let strLocation;
     switch (scheduleId){
         case "scheduleRow1":
             strLocation = "Soccerfield near Ehwa Main Gate";
