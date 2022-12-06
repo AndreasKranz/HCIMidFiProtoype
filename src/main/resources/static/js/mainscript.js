@@ -8,7 +8,7 @@ function search() {
 }
 
 async function openVoting() {
-    const url = 'http://localhost:8090/vote';
+    const url = 'https://akranz.net/vote';
 
     let frag  = null;
 
@@ -38,7 +38,7 @@ async function openVoting() {
 }
 
 async function openEvent(scheduleId) {
-    const url = "http://localhost:8090/vote"
+    const url = "https://akranz.net/vote"
     let frag;
 
     try {
@@ -265,7 +265,7 @@ async function makeMeeting() {
     if (verified == 0) {
         let str = "Sucess! You have sent the voting for the meeting '" + eName + "' to the participants!"
 
-        const url = "http://localhost:8090/success"
+        const url = "https://akranz.net/success"
         let frag;
         try {
             const responsePromise = await fetch(url, {
@@ -295,7 +295,7 @@ async function makeMeeting() {
 
 
 async function loadLocKnownForm() {
-    const url = 'http://localhost:8090/locform';
+    const url = 'https://akranz.net/locform';
 
     let frag;
 
@@ -323,7 +323,7 @@ async function loadLocKnownForm() {
 }
 
 async function loadTimeKnownForm() {
-    const url = 'http://localhost:8090/timeform';
+    const url = 'https://akranz.net/timeform';
 
     let frag;
 
@@ -434,7 +434,7 @@ function showHiddenMarker(input) {
 async function loadmappic() {
 
 
-    const url = "http://localhost:8090/map"
+    const url = "https://akranz.net/map"
 
     let frag;
 
@@ -470,7 +470,7 @@ async function loadmappic() {
 
 async function loadDetails(scheduleId){
 
-    const url = "http://localhost:8090/details"
+    const url = "https://akranz.net/details"
 
     let frag;
 
@@ -523,7 +523,7 @@ async function loadDetails(scheduleId){
 }
 
 async function loadPastSchedules() {
-    const url = "http://localhost:8090/finished"
+    const url = "https://akranz.net/finished"
 
     let frag;
 
