@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="MidFiPrototypeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="ACTIVE_PROFILES" />
-    <module name="MidFiPrototype" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.midfiprototype.MidFiPrototypeApplication" />
+    <module name="hifiprototype" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.hifiprototype.MidFiPrototypeApplication" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

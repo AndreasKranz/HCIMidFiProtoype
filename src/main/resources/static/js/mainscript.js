@@ -1,7 +1,3 @@
-//document.getElementById("btnTimeKnown").addEventListener('click', () => loadTimeKnownForm());
-
-let selectedOption = 0
-
 function search() {
     var location = document.getElementById("selectedLocation");
     let locationInput = document.getElementById("keyword");

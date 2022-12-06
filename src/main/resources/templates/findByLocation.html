@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" >
 <head>
     <title>Find date & time</title>
     <style>
@@ -26,39 +26,18 @@
             <label for="keyword" class="form-label">Location: <span id="selectedLocation"></span></label>
             <small id="locationHelp" class="form-text text-muted">Find the location easily.</small>
             <div id="search-container">
-                <input type="text" id="keyword" name="necessaryInput" class="form-control" placeholder="search by keywords..."/>
-                <button type="button" class="btn btn-secondary" onclick="window.open('/searchResult'); search();">Search</button>
+                <input type="text" id="keyword" name="necessaryInput" class="form-control"
+                       placeholder="search by keywords..."/>
+                <button type="button" class="btn btn-secondary" onclick="window.open('/searchResult'); search();">
+                    Search
+                </button>
             </div>
         </form>
-        <!--
-          <table>
-            <tbody>
-              <tr>
-                <td class="text-center">
-                  <form>
-                    <div id="search-container">
-                      <input type="text" id="keyword" name="keyword" class="form-control" placeholder="search by keywords..."/>
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        onclick="window.open('/searchResult'); search();"
-                      >
-                        Search
-                      </button>
-                    </div>
-                  </form>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </form>-->
     </div>
 
     <div class="btn-group">
         <p><br/></p>
-       <form th:action="@{/}" method="post">
-            <input type="submit" value="Cancel" onclick="confirmPageLeave()" class="btn btn-outline-success"/>
-        </form>
+        <button type="button" class="btn btn-outline-success" onclick="loadmappic()">Cancel</button>
         <button type="button" onclick="makeMeeting()" class="btn btn-outline-primary">Create!</button>
     </div>
 </div>
