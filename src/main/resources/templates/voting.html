@@ -43,7 +43,7 @@
     </style>
 </head>
 <body>
-<h4 class="text-center" id="votingTitle" style="font-family: 'Roboto', sans-serif;">
+<h4 id="votingTitle" style="font-family: 'Roboto', sans-serif;">
     Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!
 </h4>
 <br>
@@ -101,17 +101,16 @@
     </tr>
 </table>
 
-    <div id="voteBtns">
-        <!--<div id="voteBtns_left">
-            <button id="btnDetails" class="btn btn-outline-success btn-lg" onclick="loadDetails(document.getElementById('saveScheduleId').innerHTML)" hidden>Details</button>
-        </div>-->
-        <div id="voteBtns_right" class="btn-group">
-            <button id="btnLateVote" class="btn btn-secondary btn-lg" onclick="loadmappic()">Vote Later!</button>
-            <button id="btnSendVote" class="btn btn-dark btn-lg" onclick="">Vote!</button>
-            <button id="markAbsence" class="btn btn-danger btn-lg" onclick="hideSchedule()" hidden>Absence!</button>
-        </div>
-
+<div id="voteBtns">
+    <!--<div id="voteBtns_left">
+        <button id="btnDetails" class="btn btn-outline-success btn-lg" onclick="loadDetails(document.getElementById('saveScheduleId').innerHTML)" hidden>Details</button>
+    </div>-->
+    <button id="markAbsence" class="btn btn-danger btn-lg" onclick="hideSchedule()" style="float:left;" hidden>Absence!</button>
+    <div id="voteBtns_right" class="btn-group">
+        <button id="btnLateVote" class="btn btn-outline-secondary btn-lg" onclick="loadmappic()">Vote Later!</button>
+        <button id="btnSendVote" class="btn btn-primary btn-lg" onclick="">Vote!</button>
     </div>
+</div>
 
 <div id="saveScheduleId" hidden></div>
 
