@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <title>Title</title>
     <style>
-
         datalist {
             display: flex;
             flex-direction: column;
@@ -38,20 +37,16 @@
         #votingTable, #voteBtns { text-align: center; margin-left: 10%; }
         #voteBtns { margin-top: 5%; }
         #voteBtns_right { margin-left: 30%; }
-
-
     </style>
 </head>
 <body>
-<h4 id="votingTitle" style="font-family: 'Roboto', sans-serif;">
-    Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!
-</h4>
+<h4 id="votingTitle">Vote on your favorite Date and Time for "Movie Theater" with "Hoy, Dilon"!</h4>
 <br>
-<table id="votingTable" style="font-family: 'Roboto', sans-serif; font-size: 1.1rem;">
+<table id="votingTable" style="font-size: 1.1rem;">
     <tr>
         <th>Time</th>
         <th>Preference</th>
-        <th><button id="btnDetails" class="btn btn-outline-success " onclick="loadDetails(document.getElementById('saveScheduleId').innerHTML)" hidden>More Detail</button></th>
+        <th><button id="btnDetails" class="btn btn-outline-info " onclick="loadDetails(document.getElementById('saveScheduleId').innerHTML)" hidden>More Detail</button></th>
     </tr>
     <tr>     ️
         <th id="date1">Th 11.10 - 3.15pm</th>
