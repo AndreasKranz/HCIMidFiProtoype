@@ -405,7 +405,7 @@ function loadnaver() {
     });
 
     naver.maps.Event.addListener(map, 'click', function() {
-        loadTimeKnownForm()
+        loadLocKnownForm()
     });
 
     return map;
