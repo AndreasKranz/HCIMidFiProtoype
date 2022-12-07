@@ -14,9 +14,9 @@
     </style>
 </head>
 <body>
-<div>
-    <h3>Set up a meeting and find a Time!</h3>
-    <div class="col-3">
+<div style="width: 100%; padding: 5%; align-items: center;">
+    <h4 style="margin: 0;">Set up a meeting and find a Time!</h4>
+    <div class="col-3" style="width: 90%; margin: 5%; padding: 5%; text-align: left;">
         <form id="locationForm">
             <label for="eName" class="form-label">Event name:</label>
             <input id="eName" type="text" class="form-control" placeholder="MyFirstEvent"/><br/>
@@ -29,7 +29,15 @@
                 <input type="text" id="keyword" name="necessaryInput" class="form-control" placeholder="search by keywords..."/>
                 <button type="button" class="btn btn-secondary" onclick="window.open('/searchResult'); search();">Search</button>
             </div>
+            <div style="width: 100%;">
+                <p><br/></p>
+                <button type="button" style="margin: 10px 0 10px 10px; float: right;" onclick="makeMeeting()" class="btn btn-primary">Create</button>
+                <form th:action="@{/}" method="post">
+                    <button type="submit" value="Cancel" onclick="confirmPageLeave()" class="btn btn-outline-secondary" style="margin: 10px; float: right;">Cancel</button>
+                </form>
+            </div>
         </form>
+    </div>
         <!--
           <table>
             <tbody>
@@ -52,15 +60,6 @@
             </tbody>
           </table>
         </form>-->
-    </div>
-
-    <div class="btn-group">
-        <p><br/></p>
-       <form th:action="@{/}" method="post">
-            <input type="submit" value="Cancel" onclick="confirmPageLeave()" class="btn btn-outline-success"/>
-        </form>
-        <button type="button" onclick="makeMeeting()" class="btn btn-outline-primary">Create!</button>
-    </div>
 </div>
 
 </body>

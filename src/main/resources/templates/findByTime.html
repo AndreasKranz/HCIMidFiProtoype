@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Find location for meeting</title>
-
     <script>
         function alert() {
             if ((textBox = null)) {
@@ -12,39 +11,36 @@
         }
     </script>
 </head>
-<div id="byTimeFrame">
-    <h3>Set up a meeting and find a suitable location!</h3>
-    <form>
-        <label for="eName" class="form-label">Event name:</label>
-        <input id="eName" type="text" class="form-control"/>
-        <br/>
-        <label for="eDate" class="form-label">Date and time:</label>
-        <input type="datetime-local" id="eDate" name="necessaryInput" class="form-control"/>
-        <br/>
-        <label for="eActivity" class="form-label">Activity:</label>
-        <select id="eActivity" class="form-select">
-            <option value="Soccer">Soccer</option>
-            <option value="Studying">Studying</option>
-            <option value="Theater">Theater</option>
-            <option value="Board_Games">Board Game Cafè</option>
-        </select
-        ><br/>
-        <label for="eParticipants" class="form-label">Participants:</label>
-        <input type="email" id="eParticipants" multiple class="form-control"/>
-        <br/>
-        <button type="button" onclick="makeMeeting()" class="btn btn-outline-primary">Create!</button></form>
-
-    <div class="btn-group">
-        <form th:action="@{/}" method="post">
-            <input type="submit" value="Cancel" class="btn btn-outline-success"/>
+<div id="byTimeFrame" style="width: 100%; padding: 5%; align-items: center;">
+    <h4 style="margin: 0;">Set up a meeting and find a suitable location!</h4>
+    <div style="width: 90%; margin: 5%; padding: 5%; text-align: left;">
+        <form>
+            <label for="eName" class="form-label">Event name:</label>
+            <input id="eName" type="text" class="form-control"/>
+            <br/>
+            <label for="eDate" class="form-label">Date and time:</label>
+            <input type="datetime-local" id="eDate" name="necessaryInput" class="form-control"/>
+            <br/>
+            <label for="eActivity" class="form-label">Activity:</label>
+            <select id="eActivity" class="form-select">
+                <option value="Soccer">Soccer</option>
+                <option value="Studying">Studying</option>
+                <option value="Theater">Theater</option>
+                <option value="Board_Games">Board Game Cafè</option>
+            </select>
+            <br/>
+            <label for="eParticipants" class="form-label">Participants:</label>
+            <input type="email" id="eParticipants" multiple class="form-control"/>
+            <br/>
+            <div style="width: 100%;">
+                <button type="button" style="margin: 10px 0 10px 10px; float: right;" onclick="makeMeeting()" class="btn btn-primary">Create</button>
+                <form th:action="@{/}" method="post">
+                    <button type="submit" value="Cancel" class="btn btn-outline-secondary" style="margin: 10px; float: right;">Cancel</button>
+                </form>
+            </div>
         </form>
-        <!--<button
-                type="button"
-                onclick="makeMeeting()"
-                class="btn btn-outline-primary"
-        >
-            Make!
-        </button>-->
+
     </div>
+
 </div>
 </html>
