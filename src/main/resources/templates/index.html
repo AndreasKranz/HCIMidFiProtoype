@@ -127,7 +127,6 @@
     </style>
     <script src="/js/bootstrap.bundle.js"></script>
     <script src="/js/mainscript.js"></script>
-    <script src="/js/mainscript.js"></script>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4y0yajhyoq"></script>
 
 </head>
@@ -257,7 +256,7 @@
                         }
                         // 이번달
                         for (var i = 1; i <= nextDate; i++) {
-                            calendar.innerHTML = calendar.innerHTML + '<div class="day current">' + i + '</div>'
+                            calendar.innerHTML = calendar.innerHTML + '<div class="day current" role="button" data-toggle="tooltip" data-bs-placement="top">' + i + '</div>'
                         }
                         // 다음달
                         for (var i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
@@ -272,23 +271,37 @@
                         }
                     }
 
-                // 이전달로 이동
-                $('.go-prev').on('click', function() {
-                    thisMonth = new Date(currentYear, currentMonth - 1, 1);
-                    renderCalender(thisMonth);
-                });
+                    // 이전달로 이동
+                    $('.go-prev').on('click', function() {
+                        thisMonth = new Date(currentYear, currentMonth - 1, 1);
+                        renderCalender(thisMonth);
+                    });
 
-                // 다음달로 이동
-                $('.go-next').on('click', function() {
-                    thisMonth = new Date(currentYear, currentMonth + 1, 1);
-                    renderCalender(thisMonth);
-                });
+                    // 다음달로 이동
+                    $('.go-next').on('click', function() {
+                        thisMonth = new Date(currentYear, currentMonth + 1, 1);
+                        renderCalender(thisMonth);
+                    });
 
-                // 날짜 클릭시 미팅 만들 수 있게
-                $('.day.current').on('click', function() {
-                    alert('날짜를 클릭했음');
-                });
-            }
+                    $(function () {
+                        $('[data-toggle="tooltip"]').tooltip({
+                            trigger:"hover click",
+                            html: true,
+                            title: 'Create Meeting<br><a id="openLocation" href="#">Search Location</a>'
+                            });
+                    })
+                    $('#openLocation').on('click', function(){
+                        loadTimeKnownForm();
+    				});
+                }
+
+
+
+			    /*
+
+
+				*/
+
             </script>
             <hr>
         </div>
