@@ -9,7 +9,7 @@ README
 Chronous Hi-fi Prototype on HTML
 
 HOW TO USE:
-You can use the chronos which were built by HTML and Spring Boot. Execute the Jar File and access it with localhost:8090/
+You can use the chronos which were built by HTML and Spring Boot. You just have to open https://akranz.net/
 
 HTML:
 Hypertext markup is the dominant markup language developed for web page display. HTML also provides a way to create structural documents with links, citations, and other items, as well as representing structural meanings for text such as titles, paragraphs, lists, etc. Hypertext markup has a possibility to make further functionalities such as API. Since we have the map user interface, which is the basic element, we introduce the Google Map API service to show our map based design idea through the Hypertext markup.
