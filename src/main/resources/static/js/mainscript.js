@@ -373,11 +373,11 @@ function loadnaver() {
     });
 
 
-    let contentStringECC = "<div> <h4 style='margin-left: 10px; margin-right: 10px; margin-top: 5px'> 2 | Studying</h4>" +
-        "<button type=\"button\" onclick=\"openEvent('scheduleRow2')\" class=\"btn btn-outline-success align-content-center\" style='margin: 10px 10px 10px 40px'> View</button> </div>"
+    let contentStringECC = "<div style='padding: 10px; text-align:center; align-items: center;'> <h6> My Schedule No.2<br>in ECC</h6>" +
+        "<button type=\"button\" onclick=\"openEvent('scheduleRow2')\" class=\"btn btn-outline-info\" style=\"margin: auto;\">More Detail</button> </div>"
 
-    let contentStringSoccer = "<div> <h4 style='margin-left: 10px; margin-right: 10px; margin-top: 5px'> 1 | Soccer</h4>" +
-        "<button type=\"button\" onclick=\"openEvent('scheduleRow1')\" class=\"btn btn-outline-success align-content-center\" style='margin: 10px 10px 10px 32px'> View</button> </div>"
+    let contentStringSoccer = "<div style='padding: 10px; text-align:center; align-items: center;'> <h6> My Schedule No.1<br>in playground</h6>" +
+        "<button type=\"button\" onclick=\"openEvent('scheduleRow1')\" class=\"btn btn-outline-info\" style=\"margin: auto;\">More Detail</button> </div>"
 
 
     let infowindowECC = new naver.maps.InfoWindow({
@@ -418,8 +418,8 @@ function showHiddenMarker(input) {
         map: input
     });
 
-    let contentString = "<div> <h4 style='margin-left: 10px; margin-right: 10px; margin-top: 5px'> 3 | Theater</h4>" +
-        "<button type=\"button\" onclick=\"openEvent('scheduleRowHidden')\" class=\"btn btn-outline-success align-content-center\" style='margin: 10px 10px 10px 32px'> View</button> </div>"
+    let contentString = "<div style='padding: 10px; text-align:center; align-items: center;'><h6> My Schedule No.3<br>in theater</h6>" +
+        "<button type=\"button\" onclick=\"openEvent('scheduleRowHidden')\" class=\"btn btn-outline-info\" style=\"margin: auto;\">More Detail</button></div>"
 
     let infowindowTheater = new naver.maps.InfoWindow({
         content: contentString
