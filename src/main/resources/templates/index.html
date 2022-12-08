@@ -130,6 +130,44 @@
         .sec_cal .cal_wrap .day.disable {
             color: #ddd;
         }
+	    
+	#helpImg { margin-left: 20%; width: 25px; }
+        #helpMsg {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          visibility: hidden;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 80%;
+          height: 80%;
+          border: 3px solid black;
+          border-radius: 10px;
+          z-index: 1000;
+          margin: 5% 10% 15% 10%;
+          background-color: white; }
+
+        #helpMsg div {
+          padding: 10px 20px 10px 20px;
+        }
+
+        #helpHeader {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        #helpHeader h1 {
+          font-weight: 800;
+        }
+
+        #helpClosingSentence {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 15px;
+          color: grey;
+          font-weight: 800;
+        }
     </style>
     <script src="/js/bootstrap.bundle.js"></script>
     <script src="/js/mainscript.js"></script>
@@ -139,6 +177,25 @@
 <body onload="loadmappic()">
 <!--<h1 class="text-center" onclick="loadmappic()">Chronos</h1>
 -->
+	
+<div id="helpMsg" onclick="closeHelp()">
+    <div>
+        <div id="helpHeader">
+            <h1>How to Use Chronos</h1>
+            <p>Thanks for visiting Chronos! With Chronos, you can fill the missing piece of your schedule.</p>
+        </div>
+        <h3>1. Create a new schedule</h3>
+        <p>When you know the date & time, and looking for the appropriate location, click the meeting date on the calendar on the left and proceed to find location.</br>
+        When you know the location, and looking for the appropriate date & time, click the meeting location on the map and proceed to find your date & time.</br>
+        You can also start finding the right place or time by clicking the 'Create Meeting' button on the right side of the navigation bar.</p>
+        <h3>2. Receive invitations</h3>
+        <p>Others can create schedules and invite you. Click the message icon in the navigation bar to see the invitations.</p>
+        <h3>3. Check your oncoming schedule</h3>
+        <p>You can see all of your oncoming schedules in 'My Schedules' section in the bottom right.</p>
+    </div>
+    <div id="helpClosingSentence">click here to close this helping message</div>
+</div>
+
 
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #022873;">
     <div class="container-fluid">
@@ -168,6 +225,7 @@
                     </ul>
                 </li>
             </ul>
+            <div id="help" onclick="openHelp()"><img id="helpImg" src="https://i.imgur.com/IRcJGtw.png"/></div>
         </div>
     </div>
 </nav>

@@ -552,3 +552,15 @@ async function loadPastSchedules() {
 
 }
 
+
+
+/* functions for helping message */
+function openHelp() {
+    var help = document.getElementById("helpMsg");
+    help.style.visibility = "visible";
+}
+
+function closeHelp() {
+    var help = document.getElementById("helpMsg");
+    help.style.visibility = "hidden";
+}
