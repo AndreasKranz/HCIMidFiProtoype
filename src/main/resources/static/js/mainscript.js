@@ -9,6 +9,7 @@ function search() {
 
 async function openVoting() {
     const url = 'https://akranz.net/vote';
+    const url1 = 'http://localhost:8080/vote';
 
     let frag  = null;
 
@@ -39,6 +40,7 @@ async function openVoting() {
 
 async function openEvent(scheduleId) {
     const url = "https://akranz.net/vote"
+    const url1 = 'http://localhost:8080/vote';
     let frag;
 
     try {
@@ -266,6 +268,7 @@ async function makeMeeting() {
         let str = "Sucess! You have sent the voting for the meeting '" + eName + "' to the participants!"
 
         const url = "https://akranz.net/success"
+        const url1 = 'http://localhost:8080/';
         let frag;
         try {
             const responsePromise = await fetch(url, {
@@ -296,6 +299,7 @@ async function makeMeeting() {
 
 async function loadLocKnownForm() {
     const url = 'https://akranz.net/locform';
+    const url1 = 'http://localhost:8080/locform';
 
     let frag;
 
@@ -324,6 +328,7 @@ async function loadLocKnownForm() {
 
 async function loadTimeKnownForm() {
     const url = 'https://akranz.net/timeform';
+    const url1 = 'http://localhost:8080/timeform';
 
     let frag;
 
@@ -370,10 +375,10 @@ function loadnaver() {
 
 
     let contentStringECC = "<div style='padding: 10px; text-align:center; align-items: center;'> <h6> My Schedule No.2<br>in ECC</h6>" +
-        "<button type=\"button\" onclick=\"openEvent('scheduleRow2')\" class=\"btn btn-outline-info\" style=\"margin: auto;\">More Detail</button> </div>"
+        "<button type=\"button\" onclick=\"loadDetails('scheduleRow2')\" class=\"btn btn-outline-info\" style=\"margin: auto;\">More Detail</button> </div>"
 
     let contentStringSoccer = "<div style='padding: 10px; text-align:center; align-items: center;'> <h6> My Schedule No.1<br>in playground</h6>" +
-        "<button type=\"button\" onclick=\"openEvent('scheduleRow1')\" class=\"btn btn-outline-info\" style=\"margin: auto;\">More Detail</button> </div>"
+        "<button type=\"button\" onclick=\"loadDetails('scheduleRow1')\" class=\"btn btn-outline-info\" style=\"margin: auto;\">More Detail</button> </div>"
 
 
     let infowindowECC = new naver.maps.InfoWindow({
@@ -415,7 +420,7 @@ function showHiddenMarker(input) {
     });
 
     let contentString = "<div style='padding: 10px; text-align:center; align-items: center;'><h6> My Schedule No.3<br>in theater</h6>" +
-        "<button type=\"button\" onclick=\"openEvent('scheduleRowHidden')\" class=\"btn btn-outline-info\" style=\"margin: auto;\">More Detail</button></div>"
+        "<button type=\"button\" onclick=\"loadDetails('scheduleRowHidden')\" class=\"btn btn-outline-info\" style=\"margin: auto;\">More Detail</button></div>"
 
     let infowindowTheater = new naver.maps.InfoWindow({
         content: contentString
@@ -435,6 +440,7 @@ async function loadmappic() {
 
 
     const url = "https://akranz.net/map"
+    const url1 = 'http://localhost:8080/map';
 
     let frag;
 
@@ -470,7 +476,10 @@ async function loadmappic() {
 
 async function loadDetails(scheduleId){
 
+    let ide = scheduleId
+
     const url = "https://akranz.net/details"
+    const url1 = 'http://localhost:8080/details';
 
     let frag;
 
@@ -502,19 +511,24 @@ async function loadDetails(scheduleId){
     document.getElementById("detailDate").innerHTML = cells[2].innerHTML
     document.getElementById("detailTime").innerHTML = cells[3].innerHTML
     document.getElementById("detailParticipants").innerHTML = cells[4].innerHTML
+    let secretDiv = document.getElementById("detailsDivHidden").innerHTML = scheduleId;
+
     let strLocation;
     switch (scheduleId){
         case "scheduleRow1":
             strLocation = "Soccerfield near Ehwa Main Gate";
+
+
             break;
         case "scheduleRo2":
             strLocation = "Enigeering Building B Floor 2";
+            break;
+        case "scheduleRowHidden":
             break;
         default:
             strLocation = "Han River playground";
     }
     document.getElementById("detailLocation").innerHTML = strLocation;
-
 
     let bigstage = document.getElementById("bigStage")
     bigstage.innerHTML = hiddenDiv.innerHTML;
@@ -524,6 +538,7 @@ async function loadDetails(scheduleId){
 
 async function loadPastSchedules() {
     const url = "https://akranz.net/finished"
+    const url1 = 'http://localhost:8080/finished';
 
     let frag;
 

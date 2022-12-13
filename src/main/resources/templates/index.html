@@ -11,23 +11,40 @@
     <script src="https://kit.fontawesome.com/76455550da.js" crossorigin="anonymous"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <style>
-        #leftBar { width: min-content; }
+        #leftBar {
+            width: min-content;
+        }
+
         #rightBar {
             width: 65%;
             padding: 1rem 0 1rem 1rem;
-            align-items:center;
-            text-align:center;
+            align-items: center;
+            text-align: center;
             font-family: 'Roboto', sans-serif;
-            }
-        #tableSchedule { width:100%; }
-        #calendarDiv {padding: 0 0 1rem 1rem;}
-        #scheduleDiv {padding: 0 0 1rem 1rem;}
-        .navbar-brand{ font-size:1.5rem;}
+        }
+
+        #tableSchedule {
+            width: 100%;
+        }
+
+        #calendarDiv {
+            padding: 0 0 1rem 1rem;
+        }
+
+        #scheduleDiv {
+            padding: 0 0 1rem 1rem;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
         .sec_cal {
             width: 360px;
             margin: 0 auto;
             font-family: "NotoSansR";
         }
+
         .sec_cal .cal_nav {
             display: flex;
             justify-content: center;
@@ -100,7 +117,7 @@
         }
 
         .sec_cal .cal_wrap .day {
-            display:flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             width: calc(100% / 7);
@@ -108,10 +125,12 @@
             color: #999;
             font-size: 0.8rem;
             text-align: center;
-            border-radius:5px
+            border-radius: 5px
         }
 
-        .current.today {background: rgb(242 242 242);}
+        .current.today {
+            background: rgb(242 242 242);
+        }
 
         .sec_cal .cal_wrap .dates {
             display: flex;
@@ -130,54 +149,61 @@
         .sec_cal .cal_wrap .day.disable {
             color: #ddd;
         }
-	    
-	#helpImg { margin-left: 20%; width: 25px; }
+
+        #helpImg {
+            margin-left: 20%;
+            width: 25px;
+        }
+
         #helpMsg {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          visibility: hidden;
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 80%;
-          height: 80%;
-          border: 3px solid black;
-          border-radius: 10px;
-          z-index: 1000;
-          margin: 5% 10% 15% 10%;
-          background-color: white; }
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 80%;
+            border: 3px solid black;
+            border-radius: 10px;
+            z-index: 1000;
+            margin: 5% 10% 15% 10%;
+            background-color: white;
+        }
 
         #helpMsg div {
-          padding: 10px 20px 10px 20px;
+            padding: 10px 20px 10px 20px;
         }
 
         #helpHeader {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
         #helpHeader h1 {
-          font-weight: 800;
+            font-weight: 800;
         }
 
         #helpClosingSentence {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 15px;
-          color: grey;
-          font-weight: 800;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: grey;
+            font-weight: 800;
         }
     </style>
     <script src="/js/bootstrap.bundle.js"></script>
     <script src="/js/mainscript.js"></script>
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4y0yajhyoq"></script>
+    <script type="text/javascript"
+            src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4y0yajhyoq"></script>
 
 </head>
 <body onload="loadmappic()">
 <!--<h1 class="text-center" onclick="loadmappic()">Chronos</h1>
 -->
-	
+
 <div id="helpMsg" onclick="closeHelp()">
     <div>
         <div id="helpHeader">
@@ -185,11 +211,15 @@
             <p>Thanks for visiting Chronos! With Chronos, you can fill the missing piece of your schedule.</p>
         </div>
         <h3>1. Create a new schedule</h3>
-        <p>When you know the date & time, and looking for the appropriate location, click the meeting date on the calendar on the left and proceed to find location.</br>
-        When you know the location, and looking for the appropriate date & time, click the meeting location on the map and proceed to find your date & time.</br>
-        You can also start finding the right place or time by clicking the 'Create Meeting' button on the right side of the navigation bar.</p>
+        <p>When you know the date & time, and looking for the appropriate location, click the meeting date on the
+            calendar on the left and proceed to find location.</br>
+            When you know the location, and looking for the appropriate date & time, click the meeting location on the
+            map and proceed to find your date & time.</br>
+            You can also start finding the right place or time by clicking the 'Create Meeting' button on the right side
+            of the navigation bar.</p>
         <h3>2. Receive invitations</h3>
-        <p>Others can create schedules and invite you. Click the message icon in the navigation bar to see the invitations.</p>
+        <p>Others can create schedules and invite you. Click the message icon in the navigation bar to see the
+            invitations.</p>
         <h3>3. Check your oncoming schedule</h3>
         <p>You can see all of your oncoming schedules in 'My Schedules' section in the bottom right.</p>
     </div>
@@ -199,13 +229,15 @@
 
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #022873;">
     <div class="container-fluid">
-        <h3 class="navbar-brand" href="#" onclick="loadmappic()" style="font-family: Zen Dots; color:white; margin: 4px 0 4px 0;">
+        <h3 class="navbar-brand" href="#" onclick="loadmappic()"
+            style="font-family: Zen Dots; color:white; margin: 4px 0 4px 0;">
             <b>Chronos</b>
         </h3>
         <div class="collapse navbar-collapse" style="justify-content: flex-end;">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" style="color:white; font-size: 1.2rem;"><b>Create Meeting</b></a>
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                       style="color:white; font-size: 1.2rem;"><b>Create Meeting</b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a class="dropdown-item" href="#" onclick="loadLocKnownForm()">Search Time</a>
@@ -217,7 +249,9 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 1.2rem; color:white;"><i class="fas fa-lg fa-thin fa-envelope"></i></a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" style="font-size: 1.2rem; color:white;"><i
+                            class="fas fa-lg fa-thin fa-envelope"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#" onclick="openVoting()">Invitation from Hoy</a></li>
                         <li><a class="dropdown-item" href="#">Invitation from Kim</a></li>
@@ -254,9 +288,10 @@
                 </div>
             </div>
             <script>
-                $(document).ready(function() {
+                $(document).ready(function () {
                     calendarInit();
                 });
+
                 /*
                     달력 렌더링 할 때 필요한 정보 목록
 
@@ -320,7 +355,7 @@
                         }
                         // 이번달
                         for (var i = 1; i <= nextDate; i++) {
-                            calendar.innerHTML = calendar.innerHTML + '<div class="day current" role="button" data-toggle="tooltip" data-bs-placement="top">' + i + '</div>'
+                            calendar.innerHTML = calendar.innerHTML + '<div class="day current" role="button" data-toggle="tooltip" data-bs-placement="top" onclick="loadTimeKnownForm()">' + i + '</div>'
                         }
                         // 다음달
                         for (var i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
@@ -331,40 +366,34 @@
                         if (today.getMonth() == currentMonth) {
                             todayDate = today.getDate();
                             var currentMonthDate = document.querySelectorAll('.dates .current');
-                            currentMonthDate[todayDate -1].classList.add('today');
+                            currentMonthDate[todayDate - 1].classList.add('today');
                         }
                     }
 
                     // 이전달로 이동
-                    $('.go-prev').on('click', function() {
+                    $('.go-prev').on('click', function () {
                         thisMonth = new Date(currentYear, currentMonth - 1, 1);
                         renderCalender(thisMonth);
                     });
 
                     // 다음달로 이동
-                    $('.go-next').on('click', function() {
+                    $('.go-next').on('click', function () {
                         thisMonth = new Date(currentYear, currentMonth + 1, 1);
                         renderCalender(thisMonth);
                     });
 
                     $(function () {
                         $('[data-toggle="tooltip"]').tooltip({
-                            trigger:"hover click",
+                            trigger: "hover",
                             html: true,
-                            title: 'Create Meeting<br><a id="openLocation" href="#">Search Location</a>'
-                            });
+                            title: '(Click to) Create Meeting<br>'
+                        });
+
                     })
-                    $('#openLocation').on('click', function(){
+                    /*$('#openLocation').on('click', function(){
                         loadTimeKnownForm();
-    				});
+    				});*/
                 }
-
-
-
-			    /*
-
-
-				*/
 
             </script>
             <hr>
@@ -450,26 +479,32 @@
         <!-- Section: Basic example -->
         <section class="">
             <!-- Facebook -->
-            <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button" target="_blank"><i
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998"
+               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button" target="_blank"><i
                     class="fab fa-facebook-f"></i></a>
 
             <!-- Twitter -->
-            <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button" target="_blank"><i
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee"
+               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button" target="_blank"><i
                     class="fab fa-twitter"></i></a>
 
             <!-- Google -->
-            <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button" target="_blank"><i
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39"
+               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button" target="_blank"><i
                     class="fab fa-google"></i></a>
 
             <!-- Instagram -->
-            <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button" target="_blank"><i
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac"
+               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button" target="_blank"><i
                     class="fab fa-instagram"></i></a>
 
             <!-- Linkedin -->
-            <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button" target="_blank"><i
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca"
+               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button" target="_blank"><i
                     class="fab fa-linkedin-in"></i></a>
             <!-- Github -->
-            <a class="btn btn-primary btn-floating m-1" style="background-color: #333333" href="https://github.com/AndreasKranz/HCIProtoypeChronos" role="button" target="_blank"><i
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #333333"
+               href="https://github.com/AndreasKranz/HCIProtoypeChronos" role="button" target="_blank"><i
                     class="fab fa-github"></i></a>
 
 
@@ -479,4 +514,7 @@
     </section>
 </div>
 </body>
+<script>
+    document.getElementById("openLocation").addEventListener('click', () => console.log("test"))
+</script>
 </html>

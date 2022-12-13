@@ -7,6 +7,7 @@
         #detailsContents p {
             font-size: large;
         }
+
         #detailsContents p span {
             font-size: large;
             font-weight: 800;
@@ -29,15 +30,14 @@
         <h3 class="text-center"> Distribution of votes:</h3>
         <img src="/img/votingResults.png" alt="barGraph of vote distribution">
     </div>
+    <div id="btnSpace">
+        <button id="btnChangeVote" type="button" class="btn btn-info"
+                onclick="openEvent(document.getElementById('detailsDivHidden').innerHTML)">Change vote!
+        </button>
+    </div>
+    <div id="detailsDivHidden" hidden>
 
-
+    </div>
 </div>
-
-<!--<div id="buttonBox">
-  <button class="btn btn-outline-info" onclick="openEvent('scheduleRow1')">Edit votes</button>
-</div>
--->
-
-
 </body>
 </html>
