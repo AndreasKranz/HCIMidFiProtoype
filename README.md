@@ -1,5 +1,4 @@
 # HCI-Hi-FiProtoype
-Not an executable, needs to be opened witha IDE (i.e. Intellij)
 AJeong Sung
 Andreas Kranz
 Eunseong Park
